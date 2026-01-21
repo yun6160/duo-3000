@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Oxford 3000 Duo Master</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap");
             body {
@@ -78,7 +78,7 @@
                     <div
                         class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all"
                     >
-                        <i class="fas fa-book-sparkles"></i>
+                        <i class="fas fa-book"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-slate-800 mb-2">스마트 단어장</h2>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
@@ -97,7 +97,7 @@
                     <div
                         class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mb-6 text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-all"
                     >
-                        <i class="fas fa-bolt-lightning"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h2 class="text-2xl font-bold text-slate-800 mb-2">Real or Fake?</h2>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
@@ -184,7 +184,7 @@
             <div class="max-w-md w-full text-center">
                 <div class="flex justify-between items-center mb-8">
                     <button onclick="switchMode('menu')" class="px-4 py-2 bg-white/10 rounded-xl font-bold text-xs">
-                        <i class="fas fa-times mr-2"></i> EXIT
+                        <i class="fas fa-xmark mr-2"></i> EXIT
                     </button>
                     <div class="text-right">
                         <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1 block"
@@ -294,14 +294,12 @@
 
             async function init() {
                 try {
-                    // 상대 경로로 설정하여 배포 시 호환성 유지
                     const resp = await fetch("oxford3000_ko_learning.json");
                     if (!resp.ok) throw new Error("JSON not found");
                     allVocab = await resp.json();
                     renderList();
                 } catch (e) {
                     console.error("Fetch Error:", e);
-                    // 폰에서 JSON 로드 실패 시 alert
                     if (window.location.protocol === "file:") {
                         alert("⚠️ 보안 정책(CORS) 때문에 파일을 열 수 없어! 꼭 서버(http://)를 통해 접속해줘.");
                     }
@@ -342,7 +340,6 @@
 
                 const fragment = document.createDocumentFragment();
                 filtered.slice(0, 500).forEach((w) => {
-                    // 모바일 성능을 위해 상위 500개 우선 출력
                     const isLearned = learnedWords.includes(w.word);
                     const pos = w.senses[0]?.pos || "";
                     const lv = w.senses[0]?.level || "";
@@ -370,7 +367,7 @@
                     <td class="px-4 py-4 text-center">
                         <button onclick="speak('${
                             w.word
-                        }')" class="text-slate-300"><i class="fas fa-volume-up"></i></button>
+                        }')" class="text-slate-300 hover:text-indigo-500"><i class="fas fa-volume-up"></i></button>
                     </td>
                 `;
                     fragment.appendChild(tr);
@@ -478,6 +475,7 @@
                     posEl.innerText = currentWordObj.senses[0]?.pos || "";
                 } else {
                     meaningEl.innerText = "가짜 단어 (Pseudoword)";
+                    meaningEl.className = "text-base font-bold text-rose-400";
                     posEl.innerText = "N/A";
                 }
                 infoArea.style.opacity = "1";
