@@ -25828,5 +25828,5265 @@
       }
     ],
     "ko": "바람"
+  },
+  {
+    "word": "DVD",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "DVD"
+  },
+  {
+    "word": "IT",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "정보기술(IT)"
+  },
+  {
+    "word": "January",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "1월"
+  },
+  {
+    "word": "July",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "7월"
+  },
+  {
+    "word": "June",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "6월"
+  },
+  {
+    "word": "March",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "3월; 행진"
+  },
+  {
+    "word": "May",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "5월"
+  },
+  {
+    "word": "Monday",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "월요일"
+  },
+  {
+    "word": "according to",
+    "senses": [
+      {
+        "pos": "prep.",
+        "level": "A2"
+      }
+    ],
+    "ko": "~에 따르면"
+  },
+  {
+    "word": "all right",
+    "senses": [
+      {
+        "pos": "adj./adv., exclam.",
+        "level": "A2"
+      }
+    ],
+    "ko": "괜찮은; 알겠습니다"
+  },
+  {
+    "word": "any more",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "더 이상"
+  },
+  {
+    "word": "doubt",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "의심; 의심하다"
+  },
+  {
+    "word": "down",
+    "senses": [
+      {
+        "pos": "adv., prep.",
+        "level": "A1"
+      }
+    ],
+    "ko": "아래로; ~아래에"
+  },
+  {
+    "word": "download",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "다운로드하다; 내려받기"
+  },
+  {
+    "word": "downstairs",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "아래층으로; 아래층에"
+  },
+  {
+    "word": "downwards",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "아래쪽으로"
+  },
+  {
+    "word": "dozen",
+    "senses": [
+      {
+        "pos": "n., det.",
+        "level": "B1"
+      }
+    ],
+    "ko": "12개, 다스"
+  },
+  {
+    "word": "draft",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "초안; 초안을 작성하다"
+  },
+  {
+    "word": "drag",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "끌다"
+  },
+  {
+    "word": "drama",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "드라마, 연극"
+  },
+  {
+    "word": "dramatic",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "극적인"
+  },
+  {
+    "word": "draw",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그리다; 당기다"
+  },
+  {
+    "word": "drawing",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "그림, 소묘"
+  },
+  {
+    "word": "dream",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "꿈; 꿈꾸다"
+  },
+  {
+    "word": "dress",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "드레스; 옷을 입다"
+  },
+  {
+    "word": "dressed",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "옷을 입은"
+  },
+  {
+    "word": "drink",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "마시다; 음료"
+  },
+  {
+    "word": "drive",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "운전하다"
+  },
+  {
+    "word": "driver",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "운전 기사"
+  },
+  {
+    "word": "driving",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "운전"
+  },
+  {
+    "word": "drop",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "떨어뜨리다; 방울"
+  },
+  {
+    "word": "drug",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "약물, 마약"
+  },
+  {
+    "word": "drum",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "북, 드럼"
+  },
+  {
+    "word": "drunk",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "술 취한"
+  },
+  {
+    "word": "dry",
+    "senses": [
+      {
+        "pos": "adj., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "마른; 말리다"
+  },
+  {
+    "word": "due",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "~때문에; 예정된"
+  },
+  {
+    "word": "during",
+    "senses": [
+      {
+        "pos": "prep.",
+        "level": "A1"
+      }
+    ],
+    "ko": "~동안"
+  },
+  {
+    "word": "dust",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "먼지"
+  },
+  {
+    "word": "duty",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "의무, 임무"
+  },
+  {
+    "word": "each",
+    "senses": [
+      {
+        "pos": "det./pron./adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "각각의"
+  },
+  {
+    "word": "ear",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "귀"
+  },
+  {
+    "word": "early",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "일찍; 이른"
+  },
+  {
+    "word": "earn",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "벌다"
+  },
+  {
+    "word": "earth",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "지구, 땅"
+  },
+  {
+    "word": "earthquake",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "지진"
+  },
+  {
+    "word": "easily",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "쉽게"
+  },
+  {
+    "word": "east",
+    "senses": [
+      {
+        "pos": "n., adj., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "동쪽; 동쪽의"
+  },
+  {
+    "word": "eastern",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "동쪽의"
+  },
+  {
+    "word": "easy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "쉬운"
+  },
+  {
+    "word": "eat",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "먹다"
+  },
+  {
+    "word": "economic",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "경제의"
+  },
+  {
+    "word": "economy",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "경제"
+  },
+  {
+    "word": "edge",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "가장자리"
+  },
+  {
+    "word": "edit",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "편집하다"
+  },
+  {
+    "word": "edition",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "판(edition)"
+  },
+  {
+    "word": "gain",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "얻다; 이익"
+  },
+  {
+    "word": "gallery",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "미술관"
+  },
+  {
+    "word": "game",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "게임, 경기"
+  },
+  {
+    "word": "gang",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "갱단, 패거리"
+  },
+  {
+    "word": "gap",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "차이, 틈"
+  },
+  {
+    "word": "garage",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "차고, 정비소"
+  },
+  {
+    "word": "garden",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "정원"
+  },
+  {
+    "word": "gas",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "가스; 휘발유"
+  },
+  {
+    "word": "gate",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "문, 게이트"
+  },
+  {
+    "word": "gather",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "모으다"
+  },
+  {
+    "word": "general",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "일반적인"
+  },
+  {
+    "word": "generally",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "일반적으로"
+  },
+  {
+    "word": "generate",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "발생시키다"
+  },
+  {
+    "word": "generation",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "세대"
+  },
+  {
+    "word": "generous",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "관대한"
+  },
+  {
+    "word": "genre",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "장르"
+  },
+  {
+    "word": "gentle",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "온화한"
+  },
+  {
+    "word": "gentleman",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "신사"
+  },
+  {
+    "word": "geography",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "지리(학)"
+  },
+  {
+    "word": "get",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "얻다; 되다"
+  },
+  {
+    "word": "ghost",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "유령"
+  },
+  {
+    "word": "giant",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "거대한"
+  },
+  {
+    "word": "gift",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "선물; 재능"
+  },
+  {
+    "word": "girl",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "소녀"
+  },
+  {
+    "word": "girlfriend",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "여자 친구"
+  },
+  {
+    "word": "give",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "주다"
+  },
+  {
+    "word": "glad",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "기쁜"
+  },
+  {
+    "word": "glass",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "유리; 잔"
+  },
+  {
+    "word": "global",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "세계적인"
+  },
+  {
+    "word": "glove",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "장갑"
+  },
+  {
+    "word": "go",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "가다"
+  },
+  {
+    "word": "goal",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "목표; 골"
+  },
+  {
+    "word": "god",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "신"
+  },
+  {
+    "word": "gold",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "금; 금색의"
+  },
+  {
+    "word": "golf",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "골프"
+  },
+  {
+    "word": "good",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "좋은"
+  },
+  {
+    "word": "goodbye",
+    "senses": [
+      {
+        "pos": "exclam./n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "안녕(작별)"
+  },
+  {
+    "word": "goods",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "상품"
+  },
+  {
+    "word": "govern",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "통치하다"
+  },
+  {
+    "word": "government",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "정부"
+  },
+  {
+    "word": "grab",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "잡다"
+  },
+  {
+    "word": "grade",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "성적; 학년"
+  },
+  {
+    "word": "gradually",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "점차"
+  },
+  {
+    "word": "graduate",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "졸업하다"
+  },
+  {
+    "word": "grain",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "곡물"
+  },
+  {
+    "word": "grand",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "웅장한"
+  },
+  {
+    "word": "grandfather",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "할아버지"
+  },
+  {
+    "word": "grandmother",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "할머니"
+  },
+  {
+    "word": "grandparent",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "조부모"
+  },
+  {
+    "word": "grant",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "승인하다; 보조금"
+  },
+  {
+    "word": "grass",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "풀, 잔디"
+  },
+  {
+    "word": "grateful",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "감사하는"
+  },
+  {
+    "word": "great",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "훌륭한, 큰"
+  },
+  {
+    "word": "green",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "녹색의; 녹색"
+  },
+  {
+    "word": "greet",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "인사하다"
+  },
+  {
+    "word": "grey",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "회색의; 회색"
+  },
+  {
+    "word": "ground",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "땅, 바닥"
+  },
+  {
+    "word": "group",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그룹, 집단"
+  },
+  {
+    "word": "grow",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "자라다, 성장하다"
+  },
+  {
+    "word": "growth",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "성장"
+  },
+  {
+    "word": "guarantee",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "보장하다"
+  },
+  {
+    "word": "guard",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "경비원; 지키다"
+  },
+  {
+    "word": "guess",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "추측하다"
+  },
+  {
+    "word": "guest",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "손님"
+  },
+  {
+    "word": "guide",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "안내(서); 안내하다"
+  },
+  {
+    "word": "guilty",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "유죄의, 죄책감을 느끼는"
+  },
+  {
+    "word": "guitar",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "기타"
+  },
+  {
+    "word": "gun",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "총"
+  },
+  {
+    "word": "guy",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "남자, 녀석"
+  },
+  {
+    "word": "gym",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "체육관"
+  },
+  {
+    "word": "habit",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "습관"
+  },
+  {
+    "word": "hair",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "머리카락"
+  },
+  {
+    "word": "half",
+    "senses": [
+      {
+        "pos": "n., det./pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "반, 절반"
+  },
+  {
+    "word": "hall",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "홀, 복도"
+  },
+  {
+    "word": "hand",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "손"
+  },
+  {
+    "word": "handle",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "다루다; 손잡이"
+  },
+  {
+    "word": "hang",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "걸다, 매달다"
+  },
+  {
+    "word": "happen",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "일어나다, 발생하다"
+  },
+  {
+    "word": "happily",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "행복하게"
+  },
+  {
+    "word": "happiness",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "행복"
+  },
+  {
+    "word": "happy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "행복한"
+  },
+  {
+    "word": "hard",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "어려운, 딱딱한; 열심히"
+  },
+  {
+    "word": "hardly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "거의 ~않다"
+  },
+  {
+    "word": "harm",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "해; 해치다"
+  },
+  {
+    "word": "harmful",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "해로운"
+  },
+  {
+    "word": "hat",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "모자"
+  },
+  {
+    "word": "hate",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "싫어하다"
+  },
+  {
+    "word": "have",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "가지다"
+  },
+  {
+    "word": "have to",
+    "senses": [
+      {
+        "pos": "modal v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "~해야 한다"
+  },
+  {
+    "word": "he",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그는"
+  },
+  {
+    "word": "head",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "머리"
+  },
+  {
+    "word": "headache",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "두통"
+  },
+  {
+    "word": "headline",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "헤드라인, 표제"
+  },
+  {
+    "word": "health",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "건강"
+  },
+  {
+    "word": "healthy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "건강한"
+  },
+  {
+    "word": "hear",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "듣다"
+  },
+  {
+    "word": "hearing",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "청력; 청문회"
+  },
+  {
+    "word": "heart",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "심장, 마음"
+  },
+  {
+    "word": "heat",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "열; 가열하다"
+  },
+  {
+    "word": "heating",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "난방"
+  },
+  {
+    "word": "heaven",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "천국"
+  },
+  {
+    "word": "heavily",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "몹시, 심하게"
+  },
+  {
+    "word": "heavy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "무거운"
+  },
+  {
+    "word": "heel",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "발뒤꿈치"
+  },
+  {
+    "word": "height",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "높이, 키"
+  },
+  {
+    "word": "helicopter",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "헬리콥터"
+  },
+  {
+    "word": "hell",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "지옥"
+  },
+  {
+    "word": "hello",
+    "senses": [
+      {
+        "pos": "exclam./n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "안녕"
+  },
+  {
+    "word": "help",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "돕다; 도움"
+  },
+  {
+    "word": "helpful",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "도움이 되는"
+  },
+  {
+    "word": "her",
+    "senses": [
+      {
+        "pos": "pron., det.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그녀를; 그녀의"
+  },
+  {
+    "word": "here",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "여기에"
+  },
+  {
+    "word": "hero",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "영웅"
+  },
+  {
+    "word": "hers",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "그녀의 것"
+  },
+  {
+    "word": "herself",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "그녀 자신"
+  },
+  {
+    "word": "hesitate",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "망설이다"
+  },
+  {
+    "word": "hey",
+    "senses": [
+      {
+        "pos": "exclam.",
+        "level": "A1"
+      }
+    ],
+    "ko": "이봐"
+  },
+  {
+    "word": "hi",
+    "senses": [
+      {
+        "pos": "exclam.",
+        "level": "A1"
+      }
+    ],
+    "ko": "안녕"
+  },
+  {
+    "word": "hide",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "숨기다"
+  },
+  {
+    "word": "high",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "높은"
+  },
+  {
+    "word": "highlight",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "강조하다; 하이라이트"
+  },
+  {
+    "word": "highly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "매우, 높이"
+  },
+  {
+    "word": "hill",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "언덕"
+  },
+  {
+    "word": "him",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그를"
+  },
+  {
+    "word": "himself",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "그 자신"
+  },
+  {
+    "word": "hire",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "고용하다"
+  },
+  {
+    "word": "his",
+    "senses": [
+      {
+        "pos": "det.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그의"
+  },
+  {
+    "word": "historic",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "역사적인"
+  },
+  {
+    "word": "historical",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "역사의"
+  },
+  {
+    "word": "history",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "역사"
+  },
+  {
+    "word": "hit",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "치다; 타격"
+  },
+  {
+    "word": "hobby",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "취미"
+  },
+  {
+    "word": "hockey",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "하키"
+  },
+  {
+    "word": "hold",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "잡다, 개최하다"
+  },
+  {
+    "word": "hole",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "구멍"
+  },
+  {
+    "word": "holiday",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "휴가"
+  },
+  {
+    "word": "hollow",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "속이 빈"
+  },
+  {
+    "word": "holy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "신성한"
+  },
+  {
+    "word": "home",
+    "senses": [
+      {
+        "pos": "n., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "집; 집으로"
+  },
+  {
+    "word": "homework",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "숙제"
+  },
+  {
+    "word": "honest",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "정직한"
+  },
+  {
+    "word": "honour",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "명예; 존경하다"
+  },
+  {
+    "word": "hope",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "희망하다"
+  },
+  {
+    "word": "horrible",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "끔찍한"
+  },
+  {
+    "word": "horror",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "공포"
+  },
+  {
+    "word": "horse",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "말"
+  },
+  {
+    "word": "hospital",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "병원"
+  },
+  {
+    "word": "host",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "주인, 주최자"
+  },
+  {
+    "word": "ice cream",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "아이스크림"
+  },
+  {
+    "word": "impose",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "부과하다"
+  },
+  {
+    "word": "impossible",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "불가능한"
+  },
+  {
+    "word": "impress",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "인상을 주다"
+  },
+  {
+    "word": "impressed",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "감명받은"
+  },
+  {
+    "word": "impression",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "인상"
+  },
+  {
+    "word": "impressive",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "인상적인"
+  },
+  {
+    "word": "inch",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "인치"
+  },
+  {
+    "word": "incident",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "사건"
+  },
+  {
+    "word": "included",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "포함된"
+  },
+  {
+    "word": "including",
+    "senses": [
+      {
+        "pos": "prep.",
+        "level": "A2"
+      }
+    ],
+    "ko": "~을 포함하여"
+  },
+  {
+    "word": "increasingly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "점점 더"
+  },
+  {
+    "word": "incredible",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "믿을 수 없는"
+  },
+  {
+    "word": "incredibly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "믿을 수 없을 정도로"
+  },
+  {
+    "word": "indeed",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "정말로"
+  },
+  {
+    "word": "independent",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "독립적인"
+  },
+  {
+    "word": "indicate",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "가리키다, 나타내다"
+  },
+  {
+    "word": "indirect",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "간접적인"
+  },
+  {
+    "word": "individual",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "개인; 개인의"
+  },
+  {
+    "word": "indoor",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "실내의"
+  },
+  {
+    "word": "indoors",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "실내에서"
+  },
+  {
+    "word": "industrial",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "산업의"
+  },
+  {
+    "word": "industry",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "산업"
+  },
+  {
+    "word": "infection",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "감염"
+  },
+  {
+    "word": "influence",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "영향; 영향을 주다"
+  },
+  {
+    "word": "inform",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "알리다"
+  },
+  {
+    "word": "informal",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "비공식적인"
+  },
+  {
+    "word": "information",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "정보"
+  },
+  {
+    "word": "ingredient",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "재료, 성분"
+  },
+  {
+    "word": "initial",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "처음의"
+  },
+  {
+    "word": "initially",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "처음에"
+  },
+  {
+    "word": "initiative",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "계획, 주도권"
+  },
+  {
+    "word": "injure",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "다치게 하다"
+  },
+  {
+    "word": "injured",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "부상당한"
+  },
+  {
+    "word": "injury",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "부상"
+  },
+  {
+    "word": "inner",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "내부의"
+  },
+  {
+    "word": "innocent",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "무죄의, 순진한"
+  },
+  {
+    "word": "insect",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "곤충"
+  },
+  {
+    "word": "inside",
+    "senses": [
+      {
+        "pos": "prep., adv., n., adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "안에; 내부"
+  },
+  {
+    "word": "insight",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "통찰력"
+  },
+  {
+    "word": "insist",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "고집하다, 주장하다"
+  },
+  {
+    "word": "inspire",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "영감을 주다"
+  },
+  {
+    "word": "install",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "설치하다"
+  },
+  {
+    "word": "instance",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "사례"
+  },
+  {
+    "word": "instead",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "대신에"
+  },
+  {
+    "word": "institute",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "협회, 연구소"
+  },
+  {
+    "word": "institution",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "기관"
+  },
+  {
+    "word": "instruction",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "지시, 설명"
+  },
+  {
+    "word": "instructor",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "강사"
+  },
+  {
+    "word": "instrument",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "악기, 기구"
+  },
+  {
+    "word": "insurance",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "보험"
+  },
+  {
+    "word": "intelligence",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "지능"
+  },
+  {
+    "word": "intelligent",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "똑똑한"
+  },
+  {
+    "word": "intend",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "의도하다"
+  },
+  {
+    "word": "intended",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "의도된"
+  },
+  {
+    "word": "intense",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "강렬한"
+  },
+  {
+    "word": "intention",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "의도"
+  },
+  {
+    "word": "interest",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "관심; 흥미를 주다"
+  },
+  {
+    "word": "interested",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "관심 있는"
+  },
+  {
+    "word": "interesting",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "흥미로운"
+  },
+  {
+    "word": "internal",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "내부의"
+  },
+  {
+    "word": "international",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "국제적인"
+  },
+  {
+    "word": "internet",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "인터넷"
+  },
+  {
+    "word": "interpret",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "해석하다, 통역하다"
+  },
+  {
+    "word": "interrupt",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "방해하다"
+  },
+  {
+    "word": "interview",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "인터뷰; 면접하다"
+  },
+  {
+    "word": "into",
+    "senses": [
+      {
+        "pos": "prep.",
+        "level": "A1"
+      }
+    ],
+    "ko": "~안으로"
+  },
+  {
+    "word": "introduce",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "소개하다"
+  },
+  {
+    "word": "introduction",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "소개, 도입"
+  },
+  {
+    "word": "invent",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "발명하다"
+  },
+  {
+    "word": "invention",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "발명"
+  },
+  {
+    "word": "invest",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "투자하다"
+  },
+  {
+    "word": "investigate",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "조사하다"
+  },
+  {
+    "word": "investigation",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "조사"
+  },
+  {
+    "word": "investment",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "투자"
+  },
+  {
+    "word": "invitation",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "초대"
+  },
+  {
+    "word": "invite",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "초대하다"
+  },
+  {
+    "word": "involve",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "포함하다, 관련시키다"
+  },
+  {
+    "word": "involved",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "관련된"
+  },
+  {
+    "word": "iron",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "철; 다리미질하다"
+  },
+  {
+    "word": "island",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "섬"
+  },
+  {
+    "word": "issue",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "쟁점, 발행"
+  },
+  {
+    "word": "it",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그것"
+  },
+  {
+    "word": "item",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "항목"
+  },
+  {
+    "word": "its",
+    "senses": [
+      {
+        "pos": "det.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그것의"
+  },
+  {
+    "word": "itself",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "그것 자체"
+  },
+  {
+    "word": "jacket",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "재킷"
+  },
+  {
+    "word": "jam",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "잼; 혼잡"
+  },
+  {
+    "word": "jazz",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "재즈"
+  },
+  {
+    "word": "jeans",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "청바지"
+  },
+  {
+    "word": "jewellery",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "보석류"
+  },
+  {
+    "word": "job",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "직업"
+  },
+  {
+    "word": "join",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "가입하다"
+  },
+  {
+    "word": "joke",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "농담"
+  },
+  {
+    "word": "journal",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "저널, 일기"
+  },
+  {
+    "word": "journalist",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "기자"
+  },
+  {
+    "word": "journey",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "여행, 여정"
+  },
+  {
+    "word": "joy",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "기쁨"
+  },
+  {
+    "word": "judge",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "판사; 판단하다"
+  },
+  {
+    "word": "judgement",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "판단"
+  },
+  {
+    "word": "juice",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "주스"
+  },
+  {
+    "word": "jump",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "뛰다; 점프"
+  },
+  {
+    "word": "junior",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "하급의"
+  },
+  {
+    "word": "just",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "그저, 방금"
+  },
+  {
+    "word": "justice",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "정의"
+  },
+  {
+    "word": "justify",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "정당화하다"
+  },
+  {
+    "word": "keen",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "열망하는"
+  },
+  {
+    "word": "keep",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "유지하다"
+  },
+  {
+    "word": "key",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "열쇠; 핵심적인"
+  },
+  {
+    "word": "keyboard",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "키보드"
+  },
+  {
+    "word": "kick",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "차다"
+  },
+  {
+    "word": "kid",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "아이"
+  },
+  {
+    "word": "kill",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "죽이다"
+  },
+  {
+    "word": "killing",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "살해"
+  },
+  {
+    "word": "kilometre",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "킬로미터"
+  },
+  {
+    "word": "kind (caring)",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "친절한"
+  },
+  {
+    "word": "kind (type)",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "종류"
+  },
+  {
+    "word": "king",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "왕"
+  },
+  {
+    "word": "kiss",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "키스하다"
+  },
+  {
+    "word": "kitchen",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "부엌"
+  },
+  {
+    "word": "knee",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "무릎"
+  },
+  {
+    "word": "knife",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "칼"
+  },
+  {
+    "word": "knock",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "두드리다"
+  },
+  {
+    "word": "know",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "알다"
+  },
+  {
+    "word": "knowledge",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "지식"
+  },
+  {
+    "word": "lab",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "실험실"
+  },
+  {
+    "word": "label",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "라벨; 라벨을 붙이다"
+  },
+  {
+    "word": "laboratory",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "실험실"
+  },
+  {
+    "word": "labour",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "노동"
+  },
+  {
+    "word": "lack",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "부족; 부족하다"
+  },
+  {
+    "word": "lady",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "숙녀"
+  },
+  {
+    "word": "lake",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "호수"
+  },
+  {
+    "word": "lamp",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "램프"
+  },
+  {
+    "word": "land",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "땅; 착륙하다"
+  },
+  {
+    "word": "landscape",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "풍경"
+  },
+  {
+    "word": "language",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "언어"
+  },
+  {
+    "word": "laptop",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "노트북 컴퓨터"
+  },
+  {
+    "word": "large",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "큰"
+  },
+  {
+    "word": "largely",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "주로"
+  },
+  {
+    "word": "last1 (final)",
+    "senses": [
+      {
+        "pos": "det.",
+        "level": "A1"
+      }
+    ],
+    "ko": "마지막의"
+  },
+  {
+    "word": "last1 (taking time)",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "지속되다"
+  },
+  {
+    "word": "late",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "늦은; 늦게"
+  },
+  {
+    "word": "later",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "나중에"
+  },
+  {
+    "word": "latest",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "최신의"
+  },
+  {
+    "word": "laugh",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "웃다"
+  },
+  {
+    "word": "laughter",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "웃음소리"
+  },
+  {
+    "word": "launch",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "출시하다"
+  },
+  {
+    "word": "law",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "법"
+  },
+  {
+    "word": "lawyer",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "변호사"
+  },
+  {
+    "word": "lay",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "놓다"
+  },
+  {
+    "word": "layer",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "층"
+  },
+  {
+    "word": "lazy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "게으른"
+  },
+  {
+    "word": "lead1",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "이끌다"
+  },
+  {
+    "word": "leader",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "지도자"
+  },
+  {
+    "word": "leadership",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "리더십"
+  },
+  {
+    "word": "leading",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "주요한"
+  },
+  {
+    "word": "leaf",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "나뭇잎"
+  },
+  {
+    "word": "league",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "리그"
+  },
+  {
+    "word": "lean",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "기대다"
+  },
+  {
+    "word": "learn",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "배우다"
+  },
+  {
+    "word": "learning",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "학습"
+  },
+  {
+    "word": "least",
+    "senses": [
+      {
+        "pos": "det./pron., adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "가장 적은; 최소한"
+  },
+  {
+    "word": "leather",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "가죽"
+  },
+  {
+    "word": "leave",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "떠나다; 남기다"
+  },
+  {
+    "word": "lecture",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "강의; 강의하다"
+  },
+  {
+    "word": "left",
+    "senses": [
+      {
+        "pos": "adj., adv., n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "왼쪽의; 왼쪽"
+  },
+  {
+    "word": "leg",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "다리"
+  },
+  {
+    "word": "legal",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "법적인"
+  },
+  {
+    "word": "leisure",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "여가"
+  },
+  {
+    "word": "lemon",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "레몬"
+  },
+  {
+    "word": "located",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "위치한"
+  },
+  {
+    "word": "logical",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "논리적인"
+  },
+  {
+    "word": "long-term",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "장기적인"
+  },
+  {
+    "word": "loose",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "느슨한"
+  },
+  {
+    "word": "lord",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "군주, 주인"
+  },
+  {
+    "word": "lorry",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "화물차"
+  },
+  {
+    "word": "lost",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "길을 잃은"
+  },
+  {
+    "word": "loud",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "시끄러운"
+  },
+  {
+    "word": "loudly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "큰 소리로"
+  },
+  {
+    "word": "lovely",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "사랑스러운"
+  },
+  {
+    "word": "lower",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "낮추다"
+  },
+  {
+    "word": "lung",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "폐"
+  },
+  {
+    "word": "luxury",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "사치"
+  },
+  {
+    "word": "magic",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "마법"
+  },
+  {
+    "word": "mail",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "우편; 메일 보내다"
+  },
+  {
+    "word": "mainly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "주로"
+  },
+  {
+    "word": "maintain",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "유지하다"
+  },
+  {
+    "word": "major",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "주요한"
+  },
+  {
+    "word": "majority",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "대다수"
+  },
+  {
+    "word": "male",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "남성의"
+  },
+  {
+    "word": "mall",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "쇼핑몰"
+  },
+  {
+    "word": "manage",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "관리하다"
+  },
+  {
+    "word": "management",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "경영, 관리"
+  },
+  {
+    "word": "manager",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "관리자"
+  },
+  {
+    "word": "manner",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "방식, 태도"
+  },
+  {
+    "word": "mark",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "표시하다; 자국"
+  },
+  {
+    "word": "marketing",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "마케팅"
+  },
+  {
+    "word": "marriage",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "결혼"
+  },
+  {
+    "word": "mass",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "덩어리; 대중의"
+  },
+  {
+    "word": "massive",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "거대한"
+  },
+  {
+    "word": "master",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "주인; 통달하다"
+  },
+  {
+    "word": "matching",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "어울리는"
+  },
+  {
+    "word": "material",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "재료"
+  },
+  {
+    "word": "mathematics",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "수학"
+  },
+  {
+    "word": "maths",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "수학"
+  },
+  {
+    "word": "matter",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "문제; 중요하다"
+  },
+  {
+    "word": "maximum",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "최대의"
+  },
+  {
+    "word": "may",
+    "senses": [
+      {
+        "pos": "modal v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "~일지도 모른다"
+  },
+  {
+    "word": "maybe",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "아마도"
+  },
+  {
+    "word": "me",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "나를"
+  },
+  {
+    "word": "means",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "수단"
+  },
+  {
+    "word": "meanwhile",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "그동안에"
+  },
+  {
+    "word": "measure",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "측정하다"
+  },
+  {
+    "word": "measurement",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "측정"
+  },
+  {
+    "word": "meat",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "고기"
+  },
+  {
+    "word": "media",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "대중 매체"
+  },
+  {
+    "word": "medical",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "의학의"
+  },
+  {
+    "word": "medicine",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "약, 의학"
+  },
+  {
+    "word": "medium",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "중간의"
+  },
+  {
+    "word": "melt",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "녹다"
+  },
+  {
+    "word": "memory",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "기억"
+  },
+  {
+    "word": "mental",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "정신의"
+  },
+  {
+    "word": "mention",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "언급하다"
+  },
+  {
+    "word": "menu",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "메뉴"
+  },
+  {
+    "word": "mess",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "엉망"
+  },
+  {
+    "word": "metal",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "금속"
+  },
+  {
+    "word": "method",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "방법"
+  },
+  {
+    "word": "metre",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "미터"
+  },
+  {
+    "word": "midnight",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "자정"
+  },
+  {
+    "word": "might",
+    "senses": [
+      {
+        "pos": "modal v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "~일지도 모른다"
+  },
+  {
+    "word": "mild",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "온화한"
+  },
+  {
+    "word": "mile",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "마일"
+  },
+  {
+    "word": "military",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "군사의"
+  },
+  {
+    "word": "milk",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "우유"
+  },
+  {
+    "word": "million",
+    "senses": [
+      {
+        "pos": "number",
+        "level": "A1"
+      }
+    ],
+    "ko": "백만"
+  },
+  {
+    "word": "mind",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "A2"
+      }
+    ],
+    "ko": "마음; 꺼리다"
+  },
+  {
+    "word": "mine",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "나의 것"
+  },
+  {
+    "word": "mine",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "광산; 지뢰"
+  },
+  {
+    "word": "mineral",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "광물"
+  },
+  {
+    "word": "minimum",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "최소의"
+  },
+  {
+    "word": "minister",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "장관, 목사"
+  },
+  {
+    "word": "minor",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "사소한"
+  },
+  {
+    "word": "minority",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "소수"
+  },
+  {
+    "word": "minute",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "분"
+  },
+  {
+    "word": "mirror",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "거울"
+  },
+  {
+    "word": "miss",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "놓치다, 그리워하다"
+  },
+  {
+    "word": "missing",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "실종된"
+  },
+  {
+    "word": "mission",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "임무"
+  },
+  {
+    "word": "mistake",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "실수"
+  },
+  {
+    "word": "mix",
+    "senses": [
+      {
+        "pos": "v., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "섞다"
+  },
+  {
+    "word": "mixed",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "혼합된"
+  },
+  {
+    "word": "mixture",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "혼합"
+  },
+  {
+    "word": "mobile",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "이동식의"
+  },
+  {
+    "word": "model",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "모델, 모형"
+  },
+  {
+    "word": "modern",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "현대의"
+  },
+  {
+    "word": "modify",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "수정하다"
+  },
+  {
+    "word": "moment",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "순간"
+  },
+  {
+    "word": "monitor",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "모니터; 감시하다"
+  },
+  {
+    "word": "monkey",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "원숭이"
+  },
+  {
+    "word": "mood",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "기분"
+  },
+  {
+    "word": "moon",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "달"
+  },
+  {
+    "word": "moral",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "도덕적인"
+  },
+  {
+    "word": "more",
+    "senses": [
+      {
+        "pos": "det./pron., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "더 많은; 더"
+  },
+  {
+    "word": "most",
+    "senses": [
+      {
+        "pos": "det./pron., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "대부분의; 가장"
+  },
+  {
+    "word": "mostly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "주로"
+  },
+  {
+    "word": "motor",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "모터"
+  },
+  {
+    "word": "motorcycle",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "오토바이"
+  },
+  {
+    "word": "mount",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "오르다"
+  },
+  {
+    "word": "movement",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "움직임"
+  },
+  {
+    "word": "much",
+    "senses": [
+      {
+        "pos": "det./pron., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "많은; 많이"
+  },
+  {
+    "word": "mud",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "진흙"
+  },
+  {
+    "word": "multiple",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "다수의"
+  },
+  {
+    "word": "multiply",
+    "senses": [
+      {
+        "pos": "v.",
+        "level": "B2"
+      }
+    ],
+    "ko": "곱하다"
+  },
+  {
+    "word": "mum",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "엄마"
+  },
+  {
+    "word": "murder",
+    "senses": [
+      {
+        "pos": "n., v.",
+        "level": "B1"
+      }
+    ],
+    "ko": "살인; 살해하다"
+  },
+  {
+    "word": "muscle",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "근육"
+  },
+  {
+    "word": "museum",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "박물관"
+  },
+  {
+    "word": "musical",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "음악의"
+  },
+  {
+    "word": "musician",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "음악가"
+  },
+  {
+    "word": "must",
+    "senses": [
+      {
+        "pos": "modal v.",
+        "level": "A1"
+      }
+    ],
+    "ko": "~해야 한다"
+  },
+  {
+    "word": "my",
+    "senses": [
+      {
+        "pos": "det.",
+        "level": "A1"
+      }
+    ],
+    "ko": "나의"
+  },
+  {
+    "word": "myself",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "나 자신"
+  },
+  {
+    "word": "mysterious",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "신비한"
+  },
+  {
+    "word": "mystery",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "미스터리"
+  },
+  {
+    "word": "nail",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "손톱; 못"
+  },
+  {
+    "word": "narrative",
+    "senses": [
+      {
+        "pos": "n., adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "이야기"
+  },
+  {
+    "word": "narrow",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "좁은"
+  },
+  {
+    "word": "national",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "국가의"
+  },
+  {
+    "word": "native",
+    "senses": [
+      {
+        "pos": "adj., n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "원주민의; 원어민"
+  },
+  {
+    "word": "naturally",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "자연스럽게"
+  },
+  {
+    "word": "nature",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "자연"
+  },
+  {
+    "word": "nearly",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "거의"
+  },
+  {
+    "word": "neat",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B2"
+      }
+    ],
+    "ko": "깔끔한"
+  },
+  {
+    "word": "necessarily",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "반드시"
+  },
+  {
+    "word": "necessary",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "필요한"
+  },
+  {
+    "word": "neck",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "목"
+  },
+  {
+    "word": "needle",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "바늘"
+  },
+  {
+    "word": "negative",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "부정적인"
+  },
+  {
+    "word": "neighbour",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "이웃"
+  },
+  {
+    "word": "neighbourhood",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "이웃, 동네"
+  },
+  {
+    "word": "neither",
+    "senses": [
+      {
+        "pos": "det./pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "어느 쪽도 ~아닌"
+  },
+  {
+    "word": "nerve",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "신경; 용기"
+  },
+  {
+    "word": "nervous",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "불안한"
+  },
+  {
+    "word": "net",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B1"
+      }
+    ],
+    "ko": "그물"
+  },
+  {
+    "word": "network",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A2"
+      }
+    ],
+    "ko": "네트워크"
+  },
+  {
+    "word": "nevertheless",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "B2"
+      }
+    ],
+    "ko": "그럼에도 불구하고"
+  },
+  {
+    "word": "news",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "뉴스"
+  },
+  {
+    "word": "newspaper",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "신문"
+  },
+  {
+    "word": "next",
+    "senses": [
+      {
+        "pos": "adj., adv.",
+        "level": "A1"
+      }
+    ],
+    "ko": "다음의; 다음에"
+  },
+  {
+    "word": "next to",
+    "senses": [
+      {
+        "pos": "prep.",
+        "level": "A1"
+      }
+    ],
+    "ko": "~옆에"
+  },
+  {
+    "word": "nice",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A1"
+      }
+    ],
+    "ko": "좋은, 멋진"
+  },
+  {
+    "word": "nightmare",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "악몽"
+  },
+  {
+    "word": "nineteen",
+    "senses": [
+      {
+        "pos": "number",
+        "level": "A1"
+      }
+    ],
+    "ko": "열아홉"
+  },
+  {
+    "word": "ninety",
+    "senses": [
+      {
+        "pos": "number",
+        "level": "A1"
+      }
+    ],
+    "ko": "아흔"
+  },
+  {
+    "word": "noisy",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "A2"
+      }
+    ],
+    "ko": "시끄러운"
+  },
+  {
+    "word": "none",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A2"
+      }
+    ],
+    "ko": "아무도 ~않다"
+  },
+  {
+    "word": "nor",
+    "senses": [
+      {
+        "pos": "conj./adv.",
+        "level": "B1"
+      }
+    ],
+    "ko": "~도 아니다"
+  },
+  {
+    "word": "normally",
+    "senses": [
+      {
+        "pos": "adv.",
+        "level": "A2"
+      }
+    ],
+    "ko": "보통"
+  },
+  {
+    "word": "northern",
+    "senses": [
+      {
+        "pos": "adj.",
+        "level": "B1"
+      }
+    ],
+    "ko": "북쪽의"
+  },
+  {
+    "word": "nose",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "코"
+  },
+  {
+    "word": "note",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "A1"
+      }
+    ],
+    "ko": "메모"
+  },
+  {
+    "word": "notion",
+    "senses": [
+      {
+        "pos": "n.",
+        "level": "B2"
+      }
+    ],
+    "ko": "개념"
+  },
+  {
+    "word": "no one",
+    "senses": [
+      {
+        "pos": "pron.",
+        "level": "A1"
+      }
+    ],
+    "ko": "아무도 ~않다"
   }
 ]
