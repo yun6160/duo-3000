@@ -3,143 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Oxford Word Master (D15 Edition)</title>
+    <title>Oxford 3000</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap');
-        body { font-family: 'Pretendard', sans-serif; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
-        .mode-card:hover { transform: translateY(-8px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .meaning-hidden { filter: blur(8px); opacity: 0.1; transition: all 0.3s ease; }
+        body { font-family: 'Pretendard', sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        /* 뜻 숨기기/보이기 효과 */
+        .meaning-hidden { filter: blur(8px); opacity: 0.2; transition: all 0.3s ease; }
         .meaning-visible { filter: blur(0); opacity: 1; transition: all 0.3s ease; }
         
+        /* 타이머 애니메이션 */
         @keyframes timer-run { from { width: 100%; } to { width: 0%; } }
         .timer-active { animation: timer-run 7s linear forwards; }
+
+        /* 모바일 터치 영역 최적화 */
+        .touch-target { min-height: 44px; min-width: 44px; }
         
-        .edit-input { width: 100%; background: #ffffff; border: 2px solid #6366f1; border-radius: 8px; padding: 4px 8px; font-weight: 600; color: #1e293b; outline: none; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-        
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        /* 카드 쉐도우 및 모서리 */
+        .word-card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid #f1f5f9;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Loading/Error Overlay -->
-    <div id="loading-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center transition-opacity duration-500">
+    <!-- Loading & Manual Upload Overlay -->
+    <div id="loading-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-6 transition-opacity duration-500">
         <div id="loader-icon" class="w-12 h-12 border-4 border-indigo-100 border-t-indigo-600 rounded-full animate-spin mb-4"></div>
-        <div id="status-msg" class="text-center p-6">
-            <p class="text-slate-400 font-bold text-sm animate-pulse">단어 데이터를 확인하는 중...</p>
-        </div>
-        <!-- 파일 수동 선택 버튼 (에러 발생 시 노출) -->
-        <div id="manual-load" class="hidden text-center max-w-xs px-6">
-            <i class="fas fa-file-circle-exclamation text-4xl text-amber-400 mb-4"></i>
-            <p class="text-slate-600 font-bold mb-2">자동 로드 실패 (CORS 정책)</p>
-            <p class="text-xs text-slate-400 mb-6 leading-relaxed">로컬 환경이나 미리보기에서는 직접 파일을 선택해야 합니다.</p>
-            <input type="file" id="json-upload" accept=".json" class="hidden">
-            <label for="json-upload" class="bg-indigo-600 text-white px-6 py-3 rounded-2xl font-black text-sm cursor-pointer hover:bg-indigo-700 shadow-xl shadow-indigo-100 transition-all block">
-                JSON 파일 선택하기
+        <p id="status-msg" class="text-slate-500 font-bold mb-6">데이터 로드 확인 중...</p>
+        
+        <div id="manual-area" class="hidden text-center">
+            <div class="bg-indigo-50 text-indigo-700 p-4 rounded-2xl text-sm mb-6 border border-indigo-100">
+                <i class="fas fa-file-import mr-2"></i>
+                미리보기 환경에서는 파일을 직접 선택해야 합니다.<br><b>oxford3000_ko_learning.json</b>을 선택하세요.
+            </div>
+            <input type="file" id="json-input" accept=".json" class="hidden">
+            <label for="json-input" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-black text-sm cursor-pointer hover:bg-indigo-700 block shadow-xl shadow-indigo-200">
+                JSON 파일 불러오기
             </label>
         </div>
     </div>
 
-    <!-- Main Menu -->
-    <div id="main-menu" class="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-indigo-50">
-        <div class="text-center mb-12">
-            <div class="inline-block px-4 py-1 bg-indigo-100 text-indigo-600 rounded-full text-[10px] font-black tracking-widest mb-4 uppercase">DET 110+ Mastery</div>
-            <h1 class="text-5xl md:text-6xl font-black text-slate-900 mb-2 tracking-tighter">My Word <span class="text-indigo-600">Duo</span></h1>
-            <p class="text-slate-500 font-medium text-lg italic">Phone & Mac Study Sync (Dublin 15)</p>
-        </div>
+    <!-- Main Navigation / Menu -->
+    <div id="main-menu" class="min-h-screen flex flex-col items-center justify-center p-6 space-y-6">
+        <header class="text-center mb-6">
+            <h1 class="text-5xl font-black text-slate-900 tracking-tighter italic">Duo<span class="text-indigo-600">3000</span></h1>
+            <p class="text-slate-400 font-bold text-sm mt-2 uppercase tracking-widest">Road to 110 Score</p>
+        </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-            <button onclick="switchMode('list')" class="mode-card bg-white p-10 rounded-[3rem] shadow-2xl border border-white text-left group">
-                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <i class="fas fa-book"></i>
+        <div class="w-full max-w-sm space-y-4">
+            <button onclick="switchMode('list')" class="w-full mode-card bg-white p-6 rounded-3xl shadow-lg border border-slate-100 text-left flex items-center gap-5 active:scale-95 transition-all">
+                <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl">
+                    <i class="fas fa-list-ul"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">수정 가능한 단어장</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">뜻을 클릭해 직접 수정하고 관리하세요. (발음: <span class="text-indigo-400 font-mono">Prəˌnʌnsiˈeɪʃn</span>)</p>
-                <div class="flex items-center text-blue-600 font-black text-xs uppercase">Edit & Learn <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">단어장 모드</h2>
+                    <p class="text-xs text-slate-400">뜻을 고치고 암기하기</p>
+                </div>
             </button>
 
-            <button onclick="switchMode('game')" class="mode-card bg-white p-10 rounded-[3rem] shadow-2xl border border-white text-left group">
-                <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                    <i class="fas fa-bolt"></i>
+            <button onclick="switchMode('game')" class="w-full mode-card bg-white p-6 rounded-3xl shadow-lg border border-slate-100 text-left flex items-center gap-5 active:scale-95 transition-all">
+                <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl">
+                    <i class="fas fa-gamepad"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">실전 테스트 모드</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-6">7초 제한 시간 내에 정답을 맞히고 수정된 뜻을 확인하세요.</p>
-                <div class="flex items-center text-indigo-600 font-black text-xs uppercase">Play Game <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i></div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">실전 7초 게임</h2>
+                    <p class="text-xs text-slate-400">Read and Select 연습</p>
+                </div>
             </button>
         </div>
+        
+        <footer class="mt-8">
+            <button onclick="exportJSON()" class="text-xs font-bold text-slate-300 hover:text-indigo-400 transition-colors uppercase tracking-widest">
+                <i class="fas fa-download mr-1"></i> Sync Data Export
+            </button>
+        </footer>
     </div>
 
-    <!-- Vocab List View -->
-    <div id="view-list" class="hidden min-h-screen">
-        <header class="sticky top-0 z-30 glass border-b border-slate-200 p-4">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-4 w-full md:w-auto">
-                    <button onclick="switchMode('menu')" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 transition-all"><i class="fas fa-arrow-left"></i></button>
-                    <h1 class="text-lg font-black text-slate-900">Explorer</h1>
+    <!-- Mode 1: Vocab List View -->
+    <div id="view-list" class="hidden min-h-screen pb-10">
+        <header class="sticky top-0 z-20 glass border-b border-slate-100 p-4">
+            <div class="max-w-4xl mx-auto space-y-4">
+                <div class="flex justify-between items-center">
+                    <button onclick="switchMode('menu')" class="touch-target text-slate-400 hover:text-slate-900"><i class="fas fa-chevron-left fa-lg"></i></button>
+                    <h1 class="text-lg font-black text-slate-800">Vocab Book</h1>
+                    <button onclick="toggleAllMeanings()" id="global-toggle" class="text-indigo-600 text-xs font-black uppercase tracking-tighter">뜻 모두 보이기</button>
                 </div>
-                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                    <button onclick="exportJSON()" class="px-3 py-2 bg-indigo-600 text-white rounded-lg text-[10px] font-black hover:bg-indigo-700 transition-all shadow-lg">
-                        <i class="fas fa-download mr-1"></i> JSON 내보내기
-                    </button>
-                    <button id="toggle-all-meanings" onclick="toggleAllMeanings()" class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-[10px] font-black text-slate-600">
-                        <i class="fas fa-eye-slash mr-1"></i> 뜻 숨기기
-                    </button>
-                    <input type="text" id="search-input" placeholder="검색..." class="flex-1 md:w-48 border-none bg-slate-100 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500">
+                <div class="flex gap-2">
+                    <div class="relative flex-1">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-300"></i>
+                        <input type="text" id="search-input" placeholder="검색어 입력..." class="w-full bg-slate-100 border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <select id="level-filter" class="bg-slate-100 border-none rounded-xl px-3 py-2 text-xs font-bold uppercase">
+                        <option value="ALL">ALL</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                    </select>
                 </div>
             </div>
         </header>
 
-        <main class="max-w-7xl mx-auto p-4">
-            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead class="bg-slate-50/50 text-[10px] uppercase font-black text-slate-400 tracking-widest border-b">
-                            <tr>
-                                <th class="px-4 py-4 w-12 text-center">Chk</th>
-                                <th class="px-4 py-4">Word</th>
-                                <th class="px-4 py-4">Meaning (Edit)</th>
-                                <th class="px-4 py-4 w-16">Lv</th>
-                                <th class="px-4 py-4 w-12 text-center">🔊</th>
-                            </tr>
-                        </thead>
-                        <tbody id="list-body" class="divide-y divide-slate-100"></tbody>
-                    </table>
-                </div>
-            </div>
+        <main class="max-w-4xl mx-auto p-4 space-y-3" id="list-container">
+            <!-- Cards will be injected here -->
         </main>
     </div>
 
-    <!-- Duo Game View -->
-    <div id="view-game" class="hidden min-h-screen flex flex-col items-center justify-center p-4 bg-slate-950 text-white">
-        <div class="max-w-md w-full text-center">
-            <div class="flex justify-between items-center mb-8">
-                <button onclick="switchMode('menu')" class="px-4 py-2 bg-white/10 rounded-xl font-bold text-xs"><i class="fas fa-xmark mr-2"></i> EXIT</button>
-                <div class="text-right">
-                    <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1 block">Score</span>
-                    <div class="text-2xl font-black text-white" id="game-score">0</div>
+    <!-- Mode 2: Duo Game View -->
+    <div id="view-game" class="hidden min-h-screen flex flex-col items-center bg-slate-900 text-white p-6">
+        <div class="w-full max-w-md flex justify-between items-center mb-8">
+            <button onclick="switchMode('menu')" class="touch-target text-slate-500"><i class="fas fa-times fa-lg"></i></button>
+            <div class="bg-indigo-600 px-4 py-1.5 rounded-full text-sm font-black">SCORE: <span id="game-score">0</span></div>
+        </div>
+
+        <div id="game-card" class="w-full max-w-md bg-white text-slate-900 rounded-[3rem] p-10 text-center relative overflow-hidden shadow-2xl transition-all duration-300">
+            <div id="game-timer-bar" class="absolute top-0 left-0 h-2 bg-indigo-500 w-full transition-none"></div>
+            
+            <div class="mb-10">
+                <span id="game-lv" class="px-2 py-1 bg-slate-100 rounded text-[10px] font-black text-slate-400 uppercase">---</span>
+                <h2 id="target-word" class="text-5xl font-black mt-4 tracking-tighter break-all">---</h2>
+                
+                <!-- Game Result Meaning -->
+                <div id="game-result-info" class="mt-6 opacity-0 transition-all duration-300 transform translate-y-2">
+                    <p id="game-res-meaning" class="text-xl font-bold text-indigo-600"></p>
+                    <p id="game-res-pos" class="text-[10px] text-slate-300 font-bold uppercase mt-1"></p>
                 </div>
             </div>
 
-            <div id="game-card" class="bg-white text-slate-900 rounded-[3rem] shadow-2xl mb-8 transform transition-all duration-500 border-[8px] border-slate-100 relative overflow-hidden">
-                <div id="game-timer-bar" class="absolute top-0 left-0 h-1.5 bg-indigo-500 w-full transition-none"></div>
-                <div class="p-10 pt-12">
-                    <h2 id="target-word" class="text-4xl md:text-5xl font-black mb-8 tracking-tight break-all">---</h2>
-                    <div id="word-result-info" class="mb-8 min-h-[60px] opacity-0 transition-opacity duration-300">
-                        <div id="word-result-meaning" class="text-lg font-bold text-slate-700"></div>
-                        <div id="word-result-extra" class="text-[10px] text-indigo-500 font-black mt-1"></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <button id="btn-real" onclick="submitGuess(true)" class="p-5 bg-emerald-500 text-white rounded-2xl font-black text-lg shadow-lg active:scale-95 transition-transform">REAL</button>
-                        <button id="btn-fake" onclick="submitGuess(false)" class="p-5 bg-rose-500 text-white rounded-2xl font-black text-lg shadow-lg active:scale-95 transition-transform">FAKE</button>
-                    </div>
-                </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button id="btn-real" onclick="submitGuess(true)" class="p-5 bg-emerald-500 text-white rounded-2xl font-black text-lg active:scale-95 transition-all">REAL</button>
+                <button id="btn-fake" onclick="submitGuess(false)" class="p-5 bg-rose-500 text-white rounded-2xl font-black text-lg active:scale-95 transition-all">FAKE</button>
             </div>
-            <div id="game-feedback" class="h-10 font-black text-xl mb-2 transition-all"></div>
         </div>
+
+        <div id="game-feedback" class="h-10 text-xl font-black mt-4"></div>
     </div>
 
     <script>
@@ -149,127 +152,139 @@
         let score = 0;
         let currentWordIsReal = true;
         let currentWordObj = null;
-        let learnedWords = JSON.parse(localStorage.getItem('learned_duo_v6') || '[]');
-        let userOverrides = JSON.parse(localStorage.getItem('user_overrides_v6') || '{}');
+        let learnedWords = JSON.parse(localStorage.getItem('learned_v8') || '[]');
+        let userOverrides = JSON.parse(localStorage.getItem('overrides_v8') || '{}');
         let meaningsVisible = false;
         let gameTimer = null;
         const ROUND_TIME = 7000;
 
-        // --- 데이터 초기화 (하이브리드 로드) ---
         async function init() {
             try {
-                const resp = await fetch('./oxford3000_ko_learning.json');
-                if (!resp.ok) throw new Error("CORS or 404 Error");
+                // 깃허브 Pages 배포 시 작동하는 자동 로드
+                const resp = await fetch('oxford3000_ko_learning.json');
+                if (!resp.ok) throw new Error("CORS or Path mismatch");
                 const data = await resp.json();
-                processData(data);
+                handleData(data);
             } catch (e) {
-                console.warn("자동 로드 실패. 수동 선택을 대기합니다.");
-                showManualUpload();
+                console.warn("Manual load needed");
+                document.getElementById('loader-icon').classList.add('hidden');
+                document.getElementById('status-msg').innerText = "파일 로드 대기 중...";
+                document.getElementById('manual-area').classList.remove('hidden');
             }
         }
 
-        function showManualUpload() {
-            document.getElementById('loader-icon').classList.add('hidden');
-            document.getElementById('status-msg').classList.add('hidden');
-            document.getElementById('manual-load').classList.remove('hidden');
-        }
-
-        document.getElementById('json-upload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                try {
-                    const data = JSON.parse(event.target.result);
-                    processData(data);
-                } catch (err) {
-                    alert("잘못된 JSON 파일입니다!");
-                }
-            };
-            reader.readAsText(file);
-        });
-
-        function processData(data) {
-            allVocab = data.map(item => {
-                if (userOverrides[item.word]) {
-                    item.ko = userOverrides[item.word];
-                }
-                return item;
-            });
+        function handleData(data) {
+            allVocab = data;
             document.getElementById('loading-overlay').classList.add('opacity-0');
             setTimeout(() => document.getElementById('loading-overlay').classList.add('hidden'), 500);
             renderList();
         }
+
+        // 수동 파일 업로드 핸들러
+        document.getElementById('json-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const data = JSON.parse(ev.target.result);
+                    handleData(data);
+                } catch(err) { alert("잘못된 JSON 파일 형식입니다."); }
+            };
+            reader.readAsText(file);
+        });
 
         function switchMode(mode) {
             clearTimeout(gameTimer);
             document.getElementById('main-menu').classList.add('hidden');
             document.getElementById('view-list').classList.add('hidden');
             document.getElementById('view-game').classList.add('hidden');
+
             if (mode === 'menu') document.getElementById('main-menu').classList.remove('hidden');
             else if (mode === 'list') { document.getElementById('view-list').classList.remove('hidden'); renderList(); }
             else if (mode === 'game') { document.getElementById('view-game').classList.remove('hidden'); score = 0; document.getElementById('game-score').innerText = score; nextGameRound(); }
         }
 
+        // --- 단어장 렌더링 (모바일 카드 스타일) ---
         function renderList() {
-            const body = document.getElementById('list-body');
+            const container = document.getElementById('list-container');
             const search = document.getElementById('search-input').value.toLowerCase();
-            body.innerHTML = '';
-            const filtered = allVocab.filter(w => w.word.toLowerCase().includes(search) || (w.ko && w.ko.includes(search)));
-            const fragment = document.createDocumentFragment();
-            filtered.slice(0, 1000).forEach(w => {
-                const isLearned = learnedWords.includes(w.word);
-                const pos = w.senses && w.senses[0]?.pos || '';
-                const lv = w.senses && w.senses[0]?.level || '';
-                const tr = document.createElement('tr');
-                tr.className = `group hover:bg-slate-50 transition-colors ${isLearned ? 'bg-slate-50/50' : ''}`;
-                const visibilityClass = meaningsVisible ? 'meaning-visible' : 'meaning-hidden';
-                tr.innerHTML = `
-                    <td class="px-4 py-4 text-center"><input type="checkbox" ${isLearned ? 'checked' : ''} onchange="toggleLearn('${w.word}')" class="w-5 h-5 rounded border-slate-300 text-indigo-600"></td>
-                    <td class="px-4 py-4"><div class="font-bold text-slate-800 text-sm ${isLearned ? 'line-through text-slate-400' : ''}">${w.word}</div><div class="text-[8px] text-indigo-500 font-black uppercase tracking-widest">${pos}</div></td>
-                    <td class="px-4 py-4 text-xs font-bold text-slate-600">
-                        <div class="meaning-container cursor-pointer flex items-center group/edit" onclick="startEditing(this, '${w.word}')">
-                            <span class="meaning-text ${visibilityClass}">${w.ko || '---'}</span>
-                            <i class="fas fa-pen text-[8px] ml-2 text-slate-300 opacity-0 group-hover/edit:opacity-100"></i>
-                        </div>
-                    </td>
-                    <td class="px-4 py-4 text-center"><span class="text-[8px] font-black px-1.5 py-0.5 rounded bg-slate-100">${lv}</span></td>
-                    <td class="px-4 py-4 text-center"><button onclick="speak('${w.word}')" class="text-slate-300 hover:text-indigo-500"><i class="fas fa-volume-up"></i></button></td>
-                `;
-                fragment.appendChild(tr);
+            const level = document.getElementById('level-filter').value;
+            container.innerHTML = '';
+
+            const filtered = allVocab.filter(w => {
+                const matchesSearch = w.word.toLowerCase().includes(search) || (w.ko && w.ko.includes(search));
+                const wLv = w.senses[0]?.level || '';
+                const matchesLevel = level === 'ALL' || wLv === level;
+                return matchesSearch && matchesLevel;
             });
-            body.appendChild(fragment);
+
+            const fragment = document.createDocumentFragment();
+            filtered.slice(0, 300).forEach(w => {
+                const isLearned = learnedWords.includes(w.word);
+                const pos = w.senses[0]?.pos || '';
+                const lv = w.senses[0]?.level || '';
+                const currentMeaning = userOverrides[w.word] || w.ko || '---';
+                const visibilityClass = meaningsVisible ? 'meaning-visible' : 'meaning-hidden';
+
+                const div = document.createElement('div');
+                div.className = `word-card p-5 flex items-center justify-between gap-4 ${isLearned ? 'bg-slate-50 opacity-60' : ''}`;
+                div.innerHTML = `
+                    <div class="flex-1 overflow-hidden">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-lg font-black text-slate-800">${w.word}</span>
+                            <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase">${lv}</span>
+                        </div>
+                        <div class="text-[10px] text-indigo-400 font-bold uppercase mb-2 tracking-widest">${pos}</div>
+                        <div class="relative inline-block w-full" onclick="handleMeaningClick(this, '${w.word}')">
+                            <p class="meaning-text text-sm font-bold text-slate-600 transition-all ${visibilityClass}">${currentMeaning}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <input type="checkbox" ${isLearned ? 'checked' : ''} onchange="toggleLearn('${w.word}')" class="w-6 h-6 rounded-full border-slate-300 text-indigo-600 focus:ring-0">
+                        <button onclick="speak('${w.word}')" class="w-10 h-10 flex items-center justify-center text-slate-200 hover:text-indigo-500"><i class="fas fa-volume-up fa-lg"></i></button>
+                    </div>
+                `;
+                fragment.appendChild(div);
+            });
+            container.appendChild(fragment);
         }
 
-        function startEditing(container, word) {
-            if (container.querySelector('input')) return;
-            const span = container.querySelector('.meaning-text');
-            const currentVal = span.innerText;
-            const input = document.createElement('input');
-            input.type = 'text'; input.className = 'edit-input'; input.value = currentVal;
-            span.classList.add('hidden'); container.appendChild(input); input.focus();
-            input.onblur = () => finishEditing(container, input, span, word);
-            input.onkeydown = (e) => { if (e.key === 'Enter') input.blur(); };
-        }
+        // --- 수정 및 토글 로직 ---
+        function handleMeaningClick(container, word) {
+            const textEl = container.querySelector('.meaning-text');
+            if (textEl.classList.contains('meaning-hidden')) {
+                textEl.classList.replace('meaning-hidden', 'meaning-visible');
+            } else {
+                // 이미 보이는 상태면 수정 모드로 진입
+                const currentVal = textEl.innerText;
+                const input = document.createElement('input');
+                input.className = 'edit-input text-sm';
+                input.value = currentVal;
+                
+                textEl.classList.add('hidden');
+                container.appendChild(input);
+                input.focus();
 
-        function finishEditing(container, input, span, word) {
-            const newVal = input.value.trim();
-            if (newVal && newVal !== span.innerText) {
-                span.innerText = newVal;
-                const target = allVocab.find(v => v.word === word);
-                if (target) target.ko = newVal;
-                userOverrides[word] = newVal;
-                localStorage.setItem('user_overrides_v6', JSON.stringify(userOverrides));
+                input.onblur = () => {
+                    const newVal = input.value.trim();
+                    if (newVal && newVal !== currentVal) {
+                        spanUpdate(word, newVal);
+                    }
+                    input.remove();
+                    textEl.classList.remove('hidden');
+                };
+                input.onkeydown = (e) => { if(e.key === 'Enter') input.blur(); };
             }
-            input.remove(); span.classList.remove('hidden');
         }
 
-        function exportJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allVocab, null, 2));
-            const dlAnchor = document.createElement('a');
-            dlAnchor.setAttribute("href", dataStr);
-            dlAnchor.setAttribute("download", "oxford3000_ko_learning.json");
-            dlAnchor.click();
+        function spanUpdate(word, newVal) {
+            // 메모리 및 로컬 스토리지 저장
+            userOverrides[word] = newVal;
+            localStorage.setItem('user_overrides_v7', JSON.stringify(userOverrides));
+            const target = allVocab.find(v => v.word === word);
+            if(target) target.ko = newVal;
+            renderList();
         }
 
         function toggleAllMeanings() {
@@ -280,27 +295,34 @@
 
         function toggleLearn(word) {
             learnedWords = learnedWords.includes(word) ? learnedWords.filter(w => w !== word) : [...learnedWords, word];
-            localStorage.setItem('learned_duo_v6', JSON.stringify(learnedWords));
+            localStorage.setItem('learned_duo_v7', JSON.stringify(learnedWords));
             renderList();
         }
 
         function speak(text) {
             const ut = new SpeechSynthesisUtterance(text);
-            ut.lang = 'en-US'; window.speechSynthesis.speak(ut);
+            ut.lang = 'en-US'; ut.rate = 0.9;
+            window.speechSynthesis.speak(ut);
         }
 
-        document.getElementById('search-input').addEventListener('input', renderList);
-
+        // --- 게임 로직 (모바일 7초 타이머) ---
         function nextGameRound() {
             clearTimeout(gameTimer);
             const timerBar = document.getElementById('game-timer-bar');
             const targetWord = document.getElementById('target-word');
             const infoArea = document.getElementById('word-result-info');
             const feedback = document.getElementById('game-feedback');
-            feedback.innerText = ''; infoArea.style.opacity = '0';
-            document.getElementById('btn-real').disabled = false; document.getElementById('btn-fake').disabled = false;
-            document.getElementById('game-card').style.borderColor = '#f1f5f9';
-            timerBar.classList.remove('timer-active'); void timerBar.offsetWidth; timerBar.classList.add('timer-active');
+            
+            feedback.innerText = '';
+            infoArea.style.opacity = '0';
+            document.getElementById('btn-real').disabled = false;
+            document.getElementById('btn-fake').disabled = false;
+            document.getElementById('game-card').style.transform = 'scale(1)';
+
+            timerBar.classList.remove('timer-active');
+            void timerBar.offsetWidth;
+            timerBar.classList.add('timer-active');
+
             currentWordIsReal = Math.random() > 0.45;
             if (currentWordIsReal) {
                 currentWordObj = allVocab[Math.floor(Math.random() * allVocab.length)];
@@ -314,24 +336,53 @@
 
         function submitGuess(userSaysReal) {
             clearTimeout(gameTimer);
-            document.getElementById('btn-real').disabled = true; document.getElementById('btn-fake').disabled = true;
+            document.getElementById('btn-real').disabled = true;
+            document.getElementById('btn-fake').disabled = true;
             document.getElementById('game-timer-bar').classList.remove('timer-active');
+
             const feedback = document.getElementById('game-feedback');
+            const gameCard = document.getElementById('game-card');
             const isCorrect = userSaysReal === currentWordIsReal;
-            if (isCorrect) { score += 10; feedback.innerText = "CORRECT!"; feedback.className = "h-10 font-black text-xl mb-2 text-emerald-400"; }
-            else { score = Math.max(0, score - 5); feedback.innerText = "FAILED!"; feedback.className = "h-10 font-black text-xl mb-2 text-rose-500"; }
+
+            if (isCorrect) {
+                score += 10;
+                feedback.innerText = "EXCELLENT! +10";
+                feedback.className = "h-10 font-black text-xl mb-2 text-emerald-400";
+            } else {
+                score = Math.max(0, score - 5);
+                feedback.innerText = userSaysReal === null ? "TIMEOUT! -5" : "FAILED! -5";
+                feedback.className = "h-10 font-black text-xl mb-2 text-rose-500";
+            }
+            
             document.getElementById('game-score').innerText = score;
-            showWordInfo(); setTimeout(nextGameRound, 2000);
+            showWordInfo();
+            setTimeout(nextGameRound, 2000);
         }
 
         function showWordInfo() {
             const infoArea = document.getElementById('word-result-info');
             const meaningEl = document.getElementById('word-result-meaning');
-            if (currentWordIsReal && currentWordObj) { meaningEl.innerText = currentWordObj.ko || "뜻 정보 없음"; }
-            else { meaningEl.innerText = "가짜 단어"; }
+            const extraEl = document.getElementById('word-result-extra');
+            if (currentWordIsReal && currentWordObj) {
+                meaningEl.innerText = userOverrides[currentWordObj.word] || currentWordObj.ko || "뜻 없음";
+                extraEl.innerText = currentWordObj.senses[0]?.pos || "";
+            } else {
+                meaningEl.innerText = "가짜 단어 (Fake)";
+                extraEl.innerText = "---";
+            }
             infoArea.style.opacity = '1';
         }
 
+        function exportJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allVocab, null, 2));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", "oxford3000_updated.json");
+            dlAnchor.click();
+        }
+
+        document.getElementById('search-input').addEventListener('input', renderList);
+        document.getElementById('level-filter').addEventListener('change', renderList);
         window.onload = init;
     </script>
 </body>
