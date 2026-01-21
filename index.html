@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Oxford 3000 Duo Master</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap");
+            body {
+                font-family: "Pretendard", sans-serif;
+                overflow-x: hidden;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .mode-card:hover {
+                transform: translateY(-8px);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .glass {
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+            .meaning-hidden {
+                filter: blur(8px);
+                opacity: 0.1;
+                transition: all 0.3s ease;
+            }
+            .meaning-visible {
+                filter: blur(0);
+                opacity: 1;
+                transition: all 0.3s ease;
+            }
+
+            @keyframes timer-run {
+                from {
+                    width: 100%;
+                }
+                to {
+                    width: 0%;
+                }
+            }
+            .timer-active {
+                animation: timer-run 7s linear forwards;
+            }
+
+            /* 모바일 터치 최적화 */
+            input,
+            button {
+                font-size: 16px !important;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-900 min-h-screen">
+        <!-- Main Navigation / Menu -->
+        <div
+            id="main-menu"
+            class="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-indigo-50"
+        >
+            <div class="text-center mb-12">
+                <div
+                    class="inline-block px-4 py-1 bg-indigo-100 text-indigo-600 rounded-full text-[10px] font-black tracking-widest mb-4 uppercase"
+                >
+                    DET 110+ Challenger
+                </div>
+                <h1 class="text-5xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter">
+                    Oxford 3000 <span class="text-indigo-600">Duo</span>
+                </h1>
+                <p class="text-slate-500 font-medium text-base italic">Mobile Optimized study tool</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                <button
+                    onclick="switchMode('list')"
+                    class="mode-card bg-white p-8 rounded-[2.5rem] shadow-xl border border-white text-left group"
+                >
+                    <div
+                        class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all"
+                    >
+                        <i class="fas fa-book-sparkles"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 mb-2">스마트 단어장</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        3,000개 단어를 클릭하여 뜻을 확인하고 암기 상태를 관리하세요.
+                    </p>
+                    <div class="flex items-center text-blue-600 font-black text-xs uppercase tracking-wider">
+                        Start Learning
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </button>
+
+                <button
+                    onclick="switchMode('game')"
+                    class="mode-card bg-white p-8 rounded-[2.5rem] shadow-xl border border-white text-left group"
+                >
+                    <div
+                        class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mb-6 text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-all"
+                    >
+                        <i class="fas fa-bolt-lightning"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800 mb-2">Real or Fake?</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        7초 안에 진짜 단어를 골라내세요. 정답 시 한국어 뜻이 공개됩니다.
+                    </p>
+                    <div class="flex items-center text-indigo-600 font-black text-xs uppercase tracking-wider">
+                        Play Game <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mode 1: Vocab List View -->
+        <div id="view-list" class="hidden min-h-screen">
+            <header class="sticky top-0 z-30 glass border-b border-slate-200 p-4">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <button
+                            onclick="switchMode('menu')"
+                            class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 transition-all"
+                        >
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <h1 class="text-lg font-black text-slate-900">Vocab Explorer</h1>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                        <button
+                            id="toggle-all-meanings"
+                            onclick="toggleAllMeanings()"
+                            class="px-3 py-2 bg-white border border-slate-200 rounded-lg text-[10px] font-black text-slate-600"
+                        >
+                            <i class="fas fa-eye-slash mr-1"></i> 뜻 숨기기
+                        </button>
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search..."
+                            class="flex-1 md:w-48 border-none bg-slate-100 rounded-lg px-3 py-2 text-sm"
+                        />
+                        <select
+                            id="level-filter"
+                            class="bg-slate-100 border-none rounded-lg px-2 py-2 text-xs font-black text-indigo-600"
+                        >
+                            <option value="ALL">ALL</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <main class="max-w-7xl mx-auto p-4">
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead
+                                class="bg-slate-50/50 text-[10px] uppercase font-black text-slate-400 tracking-widest border-b"
+                            >
+                                <tr>
+                                    <th class="px-4 py-4 w-12 text-center">Chk</th>
+                                    <th class="px-4 py-4">Word</th>
+                                    <th class="px-4 py-4">Meaning</th>
+                                    <th class="px-4 py-4 w-16">Lv</th>
+                                    <th class="px-4 py-4 w-12 text-center">🔊</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-body" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                    <div id="empty-msg" class="hidden p-10 text-center text-slate-400 font-medium italic">
+                        No results found.
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Mode 2: Duo Game View -->
+        <div
+            id="view-game"
+            class="hidden min-h-screen flex flex-col items-center justify-center p-4 bg-slate-950 text-white"
+        >
+            <div class="max-w-md w-full text-center">
+                <div class="flex justify-between items-center mb-8">
+                    <button onclick="switchMode('menu')" class="px-4 py-2 bg-white/10 rounded-xl font-bold text-xs">
+                        <i class="fas fa-times mr-2"></i> EXIT
+                    </button>
+                    <div class="text-right">
+                        <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1 block"
+                            >Score</span
+                        >
+                        <div class="text-2xl font-black text-white" id="game-score">0</div>
+                    </div>
+                </div>
+
+                <div
+                    id="game-card"
+                    class="bg-white text-slate-900 rounded-[3rem] shadow-2xl mb-8 transform transition-all duration-500 border-[8px] border-slate-100 relative overflow-hidden"
+                >
+                    <div
+                        id="game-timer-bar"
+                        class="absolute top-0 left-0 h-1.5 bg-indigo-500 w-full transition-none"
+                    ></div>
+
+                    <div class="p-10 pt-12">
+                        <div
+                            class="inline-block px-3 py-1 bg-indigo-50 text-indigo-500 rounded-full text-[10px] font-black uppercase tracking-tighter mb-4"
+                        >
+                            Real or Fake?
+                        </div>
+                        <h2 id="target-word" class="text-4xl md:text-5xl font-black mb-8 tracking-tight break-all">
+                            ---
+                        </h2>
+
+                        <div id="word-result-info" class="mb-8 min-h-[50px] opacity-0 transition-opacity duration-300">
+                            <div id="word-result-meaning" class="text-base font-bold text-slate-700"></div>
+                            <div
+                                id="word-result-pos"
+                                class="text-[10px] text-indigo-400 font-black uppercase tracking-widest mt-1"
+                            ></div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <button
+                                id="btn-real"
+                                onclick="submitGuess(true)"
+                                class="p-5 bg-emerald-500 text-white rounded-2xl font-black text-lg shadow-lg"
+                            >
+                                REAL
+                            </button>
+                            <button
+                                id="btn-fake"
+                                onclick="submitGuess(false)"
+                                class="p-5 bg-rose-500 text-white rounded-2xl font-black text-lg shadow-lg"
+                            >
+                                FAKE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="game-feedback" class="h-10 font-black text-xl mb-2 transition-all"></div>
+                <p class="text-slate-600 text-[10px] font-bold uppercase tracking-widest">7 seconds limit</p>
+            </div>
+        </div>
+
+        <script>
+            let allVocab = [];
+            let fakeWords = [
+                "abondon",
+                "abilty",
+                "accommadation",
+                "befar",
+                "clerkly",
+                "dentis",
+                "explanate",
+                "fantasic",
+                "goverment",
+                "hapiness",
+                "inteligent",
+                "knowlege",
+                "libery",
+                "mentle",
+                "necessery",
+                "oppertunity",
+                "persnal",
+                "quitely",
+                "recive",
+                "seperat",
+                "throught",
+                "unfortunatly",
+                "valuablely",
+                "writting",
+                "youngly",
+                "envirnment",
+                "communitie",
+                "busines",
+                "carfull",
+                "dangeous",
+                "efficent",
+                "familar",
+                "guiltyly",
+                "happend",
+                "immediatly",
+            ];
+            let score = 0;
+            let currentWordIsReal = true;
+            let currentWordObj = null;
+            let learnedWords = JSON.parse(localStorage.getItem("learned_duo_optimized") || "[]");
+            let meaningsVisible = false;
+            let gameTimer = null;
+            const ROUND_TIME = 7000;
+
+            async function init() {
+                try {
+                    // 상대 경로로 설정하여 배포 시 호환성 유지
+                    const resp = await fetch("oxford3000_ko_learning.json");
+                    if (!resp.ok) throw new Error("JSON not found");
+                    allVocab = await resp.json();
+                    renderList();
+                } catch (e) {
+                    console.error("Fetch Error:", e);
+                    // 폰에서 JSON 로드 실패 시 alert
+                    if (window.location.protocol === "file:") {
+                        alert("⚠️ 보안 정책(CORS) 때문에 파일을 열 수 없어! 꼭 서버(http://)를 통해 접속해줘.");
+                    }
+                }
+            }
+
+            function switchMode(mode) {
+                clearTimeout(gameTimer);
+                document.getElementById("main-menu").classList.add("hidden");
+                document.getElementById("view-list").classList.add("hidden");
+                document.getElementById("view-game").classList.add("hidden");
+                if (mode === "menu") document.getElementById("main-menu").classList.remove("hidden");
+                else if (mode === "list") {
+                    document.getElementById("view-list").classList.remove("hidden");
+                    renderList();
+                } else if (mode === "game") {
+                    document.getElementById("view-game").classList.remove("hidden");
+                    score = 0;
+                    document.getElementById("game-score").innerText = score;
+                    nextGameRound();
+                }
+            }
+
+            function renderList() {
+                const body = document.getElementById("list-body");
+                const search = document.getElementById("search-input").value.toLowerCase();
+                const level = document.getElementById("level-filter").value;
+                body.innerHTML = "";
+
+                const filtered = allVocab.filter((w) => {
+                    const matchesSearch = w.word.toLowerCase().includes(search) || (w.ko && w.ko.includes(search));
+                    const matchesLevel = level === "ALL" || w.senses.some((s) => s.level === level);
+                    return matchesSearch && matchesLevel;
+                });
+
+                if (filtered.length === 0) document.getElementById("empty-msg").classList.remove("hidden");
+                else document.getElementById("empty-msg").classList.add("hidden");
+
+                const fragment = document.createDocumentFragment();
+                filtered.slice(0, 500).forEach((w) => {
+                    // 모바일 성능을 위해 상위 500개 우선 출력
+                    const isLearned = learnedWords.includes(w.word);
+                    const pos = w.senses[0]?.pos || "";
+                    const lv = w.senses[0]?.level || "";
+                    const tr = document.createElement("tr");
+                    tr.className = `group hover:bg-slate-50 transition-colors ${isLearned ? "bg-slate-50/50" : ""}`;
+                    const visibilityClass = meaningsVisible ? "meaning-visible" : "meaning-hidden";
+                    tr.innerHTML = `
+                    <td class="px-4 py-4 text-center">
+                        <input type="checkbox" ${isLearned ? "checked" : ""} onchange="toggleLearn('${
+                        w.word
+                    }')" class="w-5 h-5 rounded border-slate-300 text-indigo-600">
+                    </td>
+                    <td class="px-4 py-4">
+                        <div class="font-bold text-slate-800 text-sm ${
+                            isLearned ? "line-through text-slate-400" : ""
+                        }">${w.word}</div>
+                        <div class="text-[8px] text-indigo-400 font-black uppercase">${pos}</div>
+                    </td>
+                    <td class="px-4 py-4 text-xs font-bold text-slate-600 cursor-pointer select-none" onclick="toggleSingleMeaning(this)">
+                        <span class="meaning-text ${visibilityClass}">${w.ko || "---"}</span>
+                    </td>
+                    <td class="px-4 py-4">
+                        <span class="text-[8px] font-black px-1.5 py-0.5 rounded ${getLevelColor(lv)}">${lv}</span>
+                    </td>
+                    <td class="px-4 py-4 text-center">
+                        <button onclick="speak('${
+                            w.word
+                        }')" class="text-slate-300"><i class="fas fa-volume-up"></i></button>
+                    </td>
+                `;
+                    fragment.appendChild(tr);
+                });
+                body.appendChild(fragment);
+            }
+
+            function getLevelColor(level) {
+                const colors = {
+                    A1: "bg-emerald-100 text-emerald-700",
+                    A2: "bg-blue-100 text-blue-700",
+                    B1: "bg-amber-100 text-amber-700",
+                    B2: "bg-rose-100 text-rose-700",
+                };
+                return colors[level] || "bg-slate-100 text-slate-600";
+            }
+
+            function toggleSingleMeaning(el) {
+                const text = el.querySelector(".meaning-text");
+                text.classList.toggle("meaning-hidden");
+                text.classList.toggle("meaning-visible");
+            }
+
+            function toggleAllMeanings() {
+                meaningsVisible = !meaningsVisible;
+                document.getElementById("toggle-all-meanings").innerHTML = meaningsVisible
+                    ? `<i class="fas fa-eye mr-1"></i> 보이기 중`
+                    : `<i class="fas fa-eye-slash mr-1"></i> 숨기기 중`;
+                renderList();
+            }
+
+            function toggleLearn(word) {
+                learnedWords = learnedWords.includes(word)
+                    ? learnedWords.filter((w) => w !== word)
+                    : [...learnedWords, word];
+                localStorage.setItem("learned_duo_optimized", JSON.stringify(learnedWords));
+                renderList();
+            }
+
+            function speak(text) {
+                const ut = new SpeechSynthesisUtterance(text);
+                ut.lang = "en-US";
+                ut.rate = 0.9;
+                window.speechSynthesis.speak(ut);
+            }
+
+            document.getElementById("search-input").addEventListener("input", renderList);
+            document.getElementById("level-filter").addEventListener("change", renderList);
+
+            function nextGameRound() {
+                clearTimeout(gameTimer);
+                const timerBar = document.getElementById("game-timer-bar");
+                const targetWord = document.getElementById("target-word");
+                const infoArea = document.getElementById("word-result-info");
+                const feedback = document.getElementById("game-feedback");
+                feedback.innerText = "";
+                infoArea.style.opacity = "0";
+                document.getElementById("btn-real").disabled = false;
+                document.getElementById("btn-fake").disabled = false;
+                document.getElementById("game-card").style.borderColor = "#f1f5f9";
+                timerBar.classList.remove("timer-active");
+                void timerBar.offsetWidth;
+                timerBar.classList.add("timer-active");
+                currentWordIsReal = Math.random() > 0.45;
+                if (currentWordIsReal) {
+                    currentWordObj = allVocab[Math.floor(Math.random() * allVocab.length)];
+                    targetWord.innerText = currentWordObj.word;
+                } else {
+                    currentWordObj = null;
+                    targetWord.innerText = fakeWords[Math.floor(Math.random() * fakeWords.length)];
+                }
+                gameTimer = setTimeout(() => submitGuess(null), ROUND_TIME);
+            }
+
+            function submitGuess(userSaysReal) {
+                clearTimeout(gameTimer);
+                document.getElementById("btn-real").disabled = true;
+                document.getElementById("btn-fake").disabled = true;
+                document.getElementById("game-timer-bar").classList.remove("timer-active");
+                const feedback = document.getElementById("game-feedback");
+                const gameCard = document.getElementById("game-card");
+                const isCorrect = userSaysReal === currentWordIsReal;
+                if (isCorrect) {
+                    score += 10;
+                    feedback.innerText = "CORRECT! +10";
+                    feedback.className = "h-10 font-black text-xl mb-2 text-emerald-400";
+                    gameCard.style.borderColor = "#10b981";
+                } else {
+                    score = Math.max(0, score - 5);
+                    feedback.innerText = userSaysReal === null ? "TIME OVER! -5" : "FAILED! -5";
+                    feedback.className = "h-10 font-black text-xl mb-2 text-rose-500";
+                    gameCard.style.borderColor = "#f43f5e";
+                }
+                document.getElementById("game-score").innerText = score;
+                showWordInfo();
+                setTimeout(nextGameRound, 2000);
+            }
+
+            function showWordInfo() {
+                const infoArea = document.getElementById("word-result-info");
+                const meaningEl = document.getElementById("word-result-meaning");
+                const posEl = document.getElementById("word-result-pos");
+                if (currentWordIsReal && currentWordObj) {
+                    meaningEl.innerText = currentWordObj.ko || "뜻 정보 없음";
+                    posEl.innerText = currentWordObj.senses[0]?.pos || "";
+                } else {
+                    meaningEl.innerText = "가짜 단어 (Pseudoword)";
+                    posEl.innerText = "N/A";
+                }
+                infoArea.style.opacity = "1";
+            }
+
+            window.onload = init;
+        </script>
+    </body>
+</html>
