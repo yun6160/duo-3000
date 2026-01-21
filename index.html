@@ -31,54 +31,50 @@
             border: 1px solid #f1f5f9;
         }
         
-        /* 로딩 애니메이션 */
         .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #6366f1; border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-    <!-- Loading Overlay -->
     <div id="loading-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-6 transition-opacity duration-500">
         <div id="loader-content" class="text-center max-w-xs w-full">
             <div id="spinner" class="spinner mx-auto mb-6"></div>
             <h1 class="text-2xl font-black mb-2 text-slate-800">데이터 로딩</h1>
-            <p id="status-text" class="text-sm text-slate-400 mb-8">서버에서 JSON 파일을 가져오는 중입니다...</p>
+            <p id="status-text" class="text-sm text-slate-400 mb-8">서버에서 단어장을 가져오는 중입니다...</p>
             
-            <!-- Manual Fallback (Only if fetch fails) -->
             <div id="manual-ui" class="hidden space-y-4">
-                <div class="bg-indigo-50 text-indigo-700 p-5 rounded-2xl text-sm mb-6 border border-indigo-100">
-                    <i class="fas fa-file-import mb-2 text-2xl block"></i>
-                    온라인 파일을 찾을 수 없습니다.<br>내 컴퓨터의 <span class="font-bold">oxford3000_ko_learning.json</span> 파일을 직접 열어주세요.
+                <div class="bg-indigo-50 text-indigo-700 p-5 rounded-2xl text-sm mb-6 border border-indigo-100 break-words">
+                    <i class="fas fa-exclamation-triangle mb-2 text-2xl block text-indigo-400"></i>
+                    <span id="error-msg">데이터 로딩 실패</span>
                 </div>
                 <input type="file" id="json-input" accept=".json" class="hidden">
-                <label for="json-input" class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-sm cursor-pointer block shadow-xl shadow-indigo-200">
-                    JSON 파일 열기
+                <label for="json-input" class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-sm cursor-pointer block shadow-xl shadow-indigo-200 transition transform active:scale-95">
+                    내 컴퓨터에서 JSON 파일 열기
                 </label>
             </div>
         </div>
     </div>
 
-    <!-- Main App -->
     <div id="app-container" class="min-h-screen pb-24">
         <header class="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-slate-200 p-4">
             <div class="max-w-4xl mx-auto space-y-4">
                 <div class="flex justify-between items-center">
                     <h1 class="text-xl font-black text-slate-800 italic">Duo<span class="text-indigo-600">3000</span></h1>
                     <div class="flex gap-2">
-                        <button onclick="exportJSON()" class="p-2 bg-slate-100 text-slate-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all">
+                        <button onclick="exportJSON()" class="p-2 bg-slate-100 text-slate-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all" title="백업 저장">
                             <i class="fas fa-file-export"></i>
                         </button>
-                        <button onclick="toggleAllMeanings()" id="global-toggle" class="px-3 py-2 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded-xl uppercase">뜻 모두 보이기</button>
+                        <button onclick="toggleAllMeanings()" id="global-toggle" class="px-3 py-2 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded-xl uppercase transition hover:bg-indigo-100">뜻 모두 보이기</button>
                     </div>
                 </div>
                 
                 <div class="flex gap-2">
                     <div class="relative flex-1">
                         <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-300"></i>
-                        <input type="text" id="search-input" placeholder="검색 (단어, 뜻...)" class="w-full bg-slate-100 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500">
+                        <input type="text" id="search-input" placeholder="검색 (단어, 뜻...)" class="w-full bg-slate-100 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
                     </div>
-                    <select id="level-filter" class="bg-slate-100 border-none rounded-xl px-3 py-2 text-xs font-bold uppercase">
+                    <select id="level-filter" class="bg-slate-100 border-none rounded-xl px-3 py-2 text-xs font-bold uppercase outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="ALL">ALL</option>
                         <option value="A1">A1</option>
                         <option value="A2">A2</option>
@@ -94,30 +90,44 @@
 
     <script>
         let allVocab = [];
-        // 기기에 저장된 사용자 커스텀 뜻 (localStorage)
         let userOverrides = JSON.parse(localStorage.getItem('user_overrides_v8') || '{}');
         let learnedWords = JSON.parse(localStorage.getItem('user_learned_v8') || '[]');
         let meaningsVisible = false;
 
-        // 1. 초기 로드: 서버에서 패치 시도
         async function init() {
-            const fileName = 'words.json';
+            const fileName = 'https://raw.githubusercontent.com/yun6160/duo-3000/main/words.json';
+            
             try {
-                // 현재 도메인상의 상대 경로에서 패치
-                const resp = await fetch(fileName);
-                if (!resp.ok) throw new Error("Auto Fetch Failed");
+                const resp = await fetch(fileName, { cache: 'no-store' });
+                
+                if (!resp.ok) {
+                    throw new Error(`HTTP Error: ${resp.status}`);
+                }
+                
                 const data = await resp.json();
+                
+                if (!Array.isArray(data)) {
+                    throw new Error("JSON 형식이 배열이 아닙니다.");
+                }
+                
                 handleData(data);
+                
             } catch (e) {
-                console.warn("Server fetch error:", e);
-                // 실패 시 수동 업로드 UI 노출
-                document.getElementById('status-text').innerText = "온라인 파일을 찾을 수 없습니다.";
-                document.getElementById('spinner').classList.add('hidden');
-                document.getElementById('manual-area').classList.remove('hidden');
+                console.error("Initialization Failed:", e);
+                showErrorState(e.message);
             }
         }
 
-        // 2. 수동 파일 선택 시 처리
+        function showErrorState(msg) {
+            document.getElementById('status-text').innerText = "오류가 발생했습니다.";
+            document.getElementById('spinner').classList.add('hidden');
+            const manualUI = document.getElementById('manual-ui');
+            const errorMsg = document.getElementById('error-msg');
+            
+            if (manualUI) manualUI.classList.remove('hidden');
+            if (errorMsg) errorMsg.innerText = msg;
+        }
+
         document.getElementById('json-input').addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (!file) return;
@@ -125,13 +135,15 @@
             reader.onload = (ev) => {
                 try {
                     const data = JSON.parse(ev.target.result);
+                    if (!Array.isArray(data)) throw new Error("JSON이 배열 형식이 아닙니다.");
                     handleData(data);
-                } catch(err) { alert("올바른 JSON 형식이 아닙니다."); }
+                } catch(err) { 
+                    alert("JSON 파싱 실패: " + err.message); 
+                }
             };
             reader.readAsText(file);
         });
 
-        // 3. 데이터 공통 처리 (원본 + 커스텀 통합)
         function handleData(data) {
             allVocab = data.map(item => {
                 if (userOverrides[item.word]) {
@@ -139,11 +151,16 @@
                 }
                 return item;
             });
-            document.getElementById('loading-overlay').classList.add('hidden');
+            
+            const overlay = document.getElementById('loading-overlay');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 500);
+            
             renderList();
         }
 
-        // 4. 렌더링 엔진
         function renderList() {
             const container = document.getElementById('list-container');
             const search = document.getElementById('search-input').value.toLowerCase();
@@ -151,54 +168,67 @@
             container.innerHTML = '';
 
             const filtered = allVocab.filter(w => {
-                const matchesSearch = w.word.toLowerCase().includes(search) || (w.ko && w.ko.includes(search));
-                const wLv = w.senses[0]?.level || '';
+                const wordLower = w.word ? w.word.toLowerCase() : "";
+                const koMean = w.ko ? w.ko : "";
+                const matchesSearch = wordLower.includes(search) || koMean.includes(search);
+                
+                const wLv = (w.senses && w.senses[0] && w.senses[0].level) ? w.senses[0].level : 'N/A';
                 const matchesLevel = level === 'ALL' || wLv === level;
+                
                 return matchesSearch && matchesLevel;
             });
 
-            document.getElementById('stat-total').innerText = filtered.length;
-            document.getElementById('stat-edited').innerText = Object.keys(userOverrides).length;
+            // 통계 관련 코드 제거됨
 
             const fragment = document.createDocumentFragment();
-            filtered.slice(0, 300).forEach(w => {
+            
+            filtered.slice(0, 100).forEach(w => {
                 const isLearned = learnedWords.includes(w.word);
-                const pos = w.senses[0]?.pos || '';
-                const lv = w.senses[0]?.level || '';
-                const currentMeaning = w.ko || '---';
+                const pos = (w.senses && w.senses[0]) ? w.senses[0].pos : '';
+                const lv = (w.senses && w.senses[0]) ? w.senses[0].level : '';
+                const currentMeaning = w.ko || '뜻 없음';
                 const visibilityClass = meaningsVisible ? 'meaning-visible' : 'meaning-hidden';
+                const safeWord = w.word.replace(/'/g, "\\'");
 
                 const div = document.createElement('div');
-                div.className = `word-card p-5 bg-white flex items-center justify-between gap-4 mb-3 ${isLearned ? 'opacity-50 grayscale' : ''}`;
+                div.className = `word-card p-5 bg-white flex items-center justify-between gap-4 mb-3 ${isLearned ? 'opacity-50 grayscale' : ''} transition-all duration-300`;
                 div.innerHTML = `
                     <div class="flex-1 overflow-hidden">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-lg font-black text-slate-800">${w.word}</span>
-                            <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase">${lv}</span>
+                            <span class="text-lg font-black text-slate-800 tracking-tight">${w.word}</span>
+                            ${lv ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase">${lv}</span>` : ''}
                         </div>
                         <div class="text-[10px] text-indigo-400 font-bold uppercase mb-2 tracking-widest">${pos}</div>
-                        <div class="relative w-full" onclick="handleMeaningClick(this, '${w.word.replace(/'/g, "\\'")}')">
-                            <p class="meaning-text text-sm font-bold text-slate-600 transition-all ${visibilityClass}">${currentMeaning}</p>
+                        <div class="relative w-full cursor-pointer group" onclick="handleMeaningClick(this, '${safeWord}')">
+                            <p class="meaning-text text-sm font-bold text-slate-600 transition-all ${visibilityClass} group-hover:text-indigo-600">${currentMeaning}</p>
+                            <span class="text-[10px] text-slate-300 absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">수정하려면 클릭</span>
                         </div>
                     </div>
-                    <div class="flex flex-col items-center gap-4">
-                        <input type="checkbox" ${isLearned ? 'checked' : ''} onchange="toggleLearn('${w.word.replace(/'/g, "\\'")}')" class="w-6 h-6 rounded-full border-slate-300 text-indigo-600">
-                        <button onclick="speak('${w.word.replace(/'/g, "\\'")}')" class="w-10 h-10 flex items-center justify-center text-slate-200 hover:text-indigo-500"><i class="fas fa-volume-up fa-lg"></i></button>
+                    <div class="flex flex-col items-center gap-3">
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" ${isLearned ? 'checked' : ''} onchange="toggleLearn('${safeWord}')" class="sr-only peer">
+                            <div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-500"></div>
+                        </label>
+                        <button onclick="speak('${safeWord}')" class="w-8 h-8 flex items-center justify-center text-slate-300 hover:text-indigo-500 hover:bg-indigo-50 rounded-full transition-colors">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
                     </div>
                 `;
                 fragment.appendChild(div);
             });
             container.appendChild(fragment);
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="text-center text-slate-400 py-10 text-sm">검색 결과가 없습니다.</div>`;
+            }
         }
 
-        // 5. 인라인 수정 로직
         function handleMeaningClick(container, word) {
             const textEl = container.querySelector('.meaning-text');
             if (textEl.classList.contains('meaning-hidden')) {
                 textEl.classList.replace('meaning-hidden', 'meaning-visible');
                 return;
             }
-            
             const currentVal = textEl.innerText;
             const input = document.createElement('input');
             input.className = 'edit-input text-sm';
@@ -207,7 +237,7 @@
             container.appendChild(input);
             input.focus();
 
-            input.onblur = () => {
+            const finishEdit = () => {
                 const newVal = input.value.trim();
                 if (newVal && newVal !== currentVal) {
                     saveOverride(word, newVal);
@@ -215,23 +245,23 @@
                 input.remove();
                 textEl.classList.remove('hidden');
             };
+            input.onblur = finishEdit;
             input.onkeydown = (e) => { if(e.key === 'Enter') input.blur(); };
         }
 
         function saveOverride(word, newVal) {
             userOverrides[word] = newVal;
-            localStorage.setItem('user_overrides_v7', JSON.stringify(userOverrides));
+            localStorage.setItem('user_overrides_v8', JSON.stringify(userOverrides));
             const target = allVocab.find(v => v.word === word);
             if(target) target.ko = newVal;
             renderList();
         }
 
-        // 6. 유틸리티
         function exportJSON() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allVocab, null, 2));
             const dlAnchor = document.createElement('a');
             dlAnchor.setAttribute("href", dataStr);
-            dlAnchor.setAttribute("download", "oxford3000_updated.json");
+            dlAnchor.setAttribute("download", "words_updated.json");
             dlAnchor.click();
         }
 
@@ -242,15 +272,19 @@
         }
 
         function toggleLearn(word) {
-            if(learnedWords.includes(word)) learnedWords = learnedWords.filter(w => w !== word);
-            else learnedWords.push(word);
-            localStorage.setItem('learned_duo_v7', JSON.stringify(learnedWords));
+            if(learnedWords.includes(word)) {
+                learnedWords = learnedWords.filter(w => w !== word);
+            } else {
+                learnedWords.push(word);
+            }
+            localStorage.setItem('user_learned_v8', JSON.stringify(learnedWords));
             renderList();
         }
 
         function speak(text) {
             const ut = new SpeechSynthesisUtterance(text);
-            ut.lang = 'en-US'; ut.rate = 0.85;
+            ut.lang = 'en-US'; 
+            ut.rate = 0.9;
             window.speechSynthesis.speak(ut);
         }
 
