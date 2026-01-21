@@ -8,10 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap');
-        body { font-family: 'Pretendard', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Pretendard', sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
         
-        .meaning-hidden { filter: blur(8px); opacity: 0.1; transition: all 0.3s ease; }
-        .meaning-visible { filter: blur(0); opacity: 1; transition: all 0.3s ease; }
+        /* [수정됨] 블러는 유지하되 투명도를 높여서(0.1 -> 0.3) 글자 형체가 더 잘 보이게 변경 */
+        .meaning-hidden { filter: blur(5px); opacity: 0.4; transition: all 0.2s ease; cursor: pointer; background-color: #f1f5f9; border-radius: 4px; color: transparent; text-shadow: 0 0 10px rgba(0,0,0,0.2); }
+        .meaning-visible { filter: blur(0); opacity: 1; transition: all 0.2s ease; cursor: pointer; background-color: transparent; color: #475569; text-shadow: none; }
         
         .edit-input { 
             width: 100%; 
@@ -37,6 +38,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900">
 
+    <!-- 로딩 화면 -->
     <div id="loading-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-6 transition-opacity duration-500">
         <div id="loader-content" class="text-center max-w-xs w-full">
             <div id="spinner" class="spinner mx-auto mb-6"></div>
@@ -56,6 +58,7 @@
         </div>
     </div>
 
+    <!-- 메인 앱 -->
     <div id="app-container" class="min-h-screen pb-24">
         <header class="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-slate-200 p-4">
             <div class="max-w-4xl mx-auto space-y-4">
@@ -82,6 +85,7 @@
                         <option value="B2">B2</option>
                     </select>
                 </div>
+                <!-- 통계 표시줄(Stats Bar) 제거됨 -->
             </div>
         </header>
 
@@ -95,6 +99,7 @@
         let meaningsVisible = false;
 
         async function init() {
+            // 깃허브 Raw 주소
             const fileName = 'https://raw.githubusercontent.com/yun6160/duo-3000/main/words.json';
             
             try {
@@ -178,7 +183,7 @@
                 return matchesSearch && matchesLevel;
             });
 
-            // 통계 관련 코드 제거됨
+            // [수정됨] 통계 관련 JS 코드 제거 완료 (stat-total, stat-edited 관련 에러 없음)
 
             const fragment = document.createDocumentFragment();
             
@@ -199,9 +204,13 @@
                             ${lv ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase">${lv}</span>` : ''}
                         </div>
                         <div class="text-[10px] text-indigo-400 font-bold uppercase mb-2 tracking-widest">${pos}</div>
-                        <div class="relative w-full cursor-pointer group" onclick="handleMeaningClick(this, '${safeWord}')">
-                            <p class="meaning-text text-sm font-bold text-slate-600 transition-all ${visibilityClass} group-hover:text-indigo-600">${currentMeaning}</p>
-                            <span class="text-[10px] text-slate-300 absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">수정하려면 클릭</span>
+                        
+                        <!-- 클릭 핸들러 -->
+                        <div class="relative w-full cursor-pointer group py-1" 
+                             onclick="handleToggle(this)" 
+                             ondblclick="handleEdit(this, '${safeWord}')">
+                            <p class="meaning-text text-sm font-bold transition-all ${visibilityClass} select-none group-hover:text-indigo-600">${currentMeaning}</p>
+                            <span class="text-[10px] text-slate-300 absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">더블클릭 수정</span>
                         </div>
                     </div>
                     <div class="flex flex-col items-center gap-3">
@@ -223,16 +232,33 @@
             }
         }
 
-        function handleMeaningClick(container, word) {
+        // [토글 기능] 클릭 시 보이기/숨기기 전환
+        function handleToggle(container) {
             const textEl = container.querySelector('.meaning-text');
+            if (textEl.classList.contains('hidden')) return;
+
             if (textEl.classList.contains('meaning-hidden')) {
                 textEl.classList.replace('meaning-hidden', 'meaning-visible');
-                return;
+            } else {
+                textEl.classList.replace('meaning-visible', 'meaning-hidden');
             }
+        }
+
+        // [수정 기능] 더블 클릭 시 수정 모드
+        function handleEdit(container, word) {
+            const textEl = container.querySelector('.meaning-text');
+            
+            if (textEl.classList.contains('hidden')) return;
+
+            // 수정 모드 진입 시 텍스트 보이게 처리
+            textEl.classList.remove('meaning-hidden');
+            textEl.classList.add('meaning-visible');
+            
             const currentVal = textEl.innerText;
             const input = document.createElement('input');
             input.className = 'edit-input text-sm';
             input.value = currentVal;
+            
             textEl.classList.add('hidden');
             container.appendChild(input);
             input.focus();
@@ -246,7 +272,13 @@
                 textEl.classList.remove('hidden');
             };
             input.onblur = finishEdit;
-            input.onkeydown = (e) => { if(e.key === 'Enter') input.blur(); };
+            input.onkeydown = (e) => { 
+                if(e.key === 'Enter') input.blur(); 
+                if(e.key === 'Escape') {
+                    input.value = currentVal;
+                    input.blur();
+                }
+            };
         }
 
         function saveOverride(word, newVal) {
