@@ -1,329 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Oxford 3000 Duo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap');
-        body { font-family: 'Pretendard', sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
-        
-        /* [수정됨] 블러는 유지하되 투명도를 높여서(0.1 -> 0.3) 글자 형체가 더 잘 보이게 변경 */
-        .meaning-hidden { filter: blur(5px); opacity: 0.4; transition: all 0.2s ease; cursor: pointer; background-color: #f1f5f9; border-radius: 4px; color: transparent; text-shadow: 0 0 10px rgba(0,0,0,0.2); }
-        .meaning-visible { filter: blur(0); opacity: 1; transition: all 0.2s ease; cursor: pointer; background-color: transparent; color: #475569; text-shadow: none; }
-        
-        .edit-input { 
-            width: 100%; 
-            background: #ffffff; 
-            border: 2px solid #6366f1; 
-            border-radius: 12px; 
-            padding: 8px 12px; 
-            font-weight: 600; 
-            color: #1e293b; 
-            outline: none;
-        }
-        
-        .word-card {
-            background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-            border: 1px solid #f1f5f9;
-        }
-        
-        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #6366f1; border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-900">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Oxford 3000 Duo</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+            };
+        </script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap");
+            body {
+                font-family: "Pretendard", sans-serif;
+                -webkit-tap-highlight-color: transparent;
+                user-select: none;
+            }
 
-    <!-- 로딩 화면 -->
-    <div id="loading-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center p-6 transition-opacity duration-500">
-        <div id="loader-content" class="text-center max-w-xs w-full">
-            <div id="spinner" class="spinner mx-auto mb-6"></div>
-            <h1 class="text-2xl font-black mb-2 text-slate-800">데이터 로딩</h1>
-            <p id="status-text" class="text-sm text-slate-400 mb-8">서버에서 단어장을 가져오는 중입니다...</p>
-            
-            <div id="manual-ui" class="hidden space-y-4">
-                <div class="bg-indigo-50 text-indigo-700 p-5 rounded-2xl text-sm mb-6 border border-indigo-100 break-words">
-                    <i class="fas fa-exclamation-triangle mb-2 text-2xl block text-indigo-400"></i>
-                    <span id="error-msg">데이터 로딩 실패</span>
+            /* 라이트 모드 기본 */
+            .meaning-hidden {
+                filter: blur(5px);
+                opacity: 0.4;
+                transition: all 0.2s ease;
+                cursor: pointer;
+                background-color: #f1f5f9;
+                border-radius: 4px;
+                color: transparent;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+            .meaning-visible {
+                filter: blur(0);
+                opacity: 1;
+                transition: all 0.2s ease;
+                cursor: pointer;
+                background-color: transparent;
+                color: #475569;
+                text-shadow: none;
+            }
+
+            .edit-input {
+                width: 100%;
+                background: #ffffff;
+                border: 2px solid #6366f1;
+                border-radius: 12px;
+                padding: 8px 12px;
+                font-weight: 600;
+                color: #1e293b;
+                outline: none;
+            }
+
+            .word-card {
+                background: white;
+                border-radius: 1.5rem;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+                border: 1px solid #f1f5f9;
+            }
+
+            .spinner {
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #6366f1;
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* 다크 모드 오버라이드 */
+            .dark .meaning-hidden {
+                background-color: #1e293b;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+            .dark .meaning-visible {
+                color: #cbd5e1;
+            }
+            .dark .edit-input {
+                background: #1e293b;
+                border: 2px solid #818cf8;
+                color: #f8fafc;
+            }
+            .dark .word-card {
+                background: #1e293b;
+                border: 1px solid #334155;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+            }
+            .dark .spinner {
+                border: 4px solid #334155;
+                border-top: 4px solid #818cf8;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <div
+            id="loading-overlay"
+            class="fixed inset-0 z-[100] bg-white dark:bg-slate-900 flex flex-col items-center justify-center p-6 transition-opacity duration-500"
+        >
+            <div id="loader-content" class="text-center max-w-xs w-full">
+                <div id="spinner" class="spinner mx-auto mb-6"></div>
+                <h1 class="text-2xl font-black mb-2 text-slate-800 dark:text-white">데이터 로딩</h1>
+                <p id="status-text" class="text-sm text-slate-400 dark:text-slate-500 mb-8">
+                    서버에서 단어장을 가져오는 중입니다...
+                </p>
+
+                <div id="manual-ui" class="hidden space-y-4">
+                    <div
+                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 p-5 rounded-2xl text-sm mb-6 border border-indigo-100 dark:border-indigo-800 break-words"
+                    >
+                        <i
+                            class="fas fa-exclamation-triangle mb-2 text-2xl block text-indigo-400 dark:text-indigo-500"
+                        ></i>
+                        <span id="error-msg">데이터 로딩 실패</span>
+                    </div>
+                    <input type="file" id="json-input" accept=".json" class="hidden" />
+                    <label
+                        for="json-input"
+                        class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-sm cursor-pointer block shadow-xl shadow-indigo-200 dark:shadow-none transition transform active:scale-95 hover:bg-indigo-500"
+                    >
+                        내 컴퓨터에서 JSON 파일 열기
+                    </label>
                 </div>
-                <input type="file" id="json-input" accept=".json" class="hidden">
-                <label for="json-input" class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold text-sm cursor-pointer block shadow-xl shadow-indigo-200 transition transform active:scale-95">
-                    내 컴퓨터에서 JSON 파일 열기
-                </label>
             </div>
         </div>
-    </div>
 
-    <!-- 메인 앱 -->
-    <div id="app-container" class="min-h-screen pb-24">
-        <header class="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-slate-200 p-4">
-            <div class="max-w-4xl mx-auto space-y-4">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-xl font-black text-slate-800 italic">Duo<span class="text-indigo-600">3000</span></h1>
+        <div id="app-container" class="min-h-screen pb-24">
+            <header
+                class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 p-4 transition-colors duration-300"
+            >
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-xl font-black text-slate-800 dark:text-white italic">
+                            Duo<span class="text-indigo-600 dark:text-indigo-400">3000</span>
+                        </h1>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="toggleTheme()"
+                                id="theme-toggle"
+                                class="p-2 w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-all"
+                                title="다크모드 전환"
+                            >
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button
+                                onclick="exportJSON()"
+                                class="p-2 w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-xl hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-all"
+                                title="백업 저장"
+                            >
+                                <i class="fas fa-file-export"></i>
+                            </button>
+                            <button
+                                onclick="toggleAllMeanings()"
+                                id="global-toggle"
+                                class="px-3 py-2 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-black rounded-xl uppercase transition hover:bg-indigo-100 dark:hover:bg-indigo-900/50"
+                            >
+                                뜻 모두 보이기
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="flex gap-2">
-                        <button onclick="exportJSON()" class="p-2 bg-slate-100 text-slate-600 rounded-xl hover:bg-indigo-600 hover:text-white transition-all" title="백업 저장">
-                            <i class="fas fa-file-export"></i>
-                        </button>
-                        <button onclick="toggleAllMeanings()" id="global-toggle" class="px-3 py-2 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded-xl uppercase transition hover:bg-indigo-100">뜻 모두 보이기</button>
+                        <div class="relative flex-1">
+                            <i
+                                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 dark:text-slate-500"
+                            ></i>
+                            <input
+                                type="text"
+                                id="search-input"
+                                placeholder="검색 (단어, 뜻...)"
+                                class="w-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500"
+                            />
+                        </div>
+                        <select
+                            id="level-filter"
+                            class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white border-none rounded-xl px-3 py-2 text-xs font-bold uppercase outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+                        >
+                            <option value="ALL">ALL</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                        </select>
                     </div>
                 </div>
-                
-                <div class="flex gap-2">
-                    <div class="relative flex-1">
-                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-300"></i>
-                        <input type="text" id="search-input" placeholder="검색 (단어, 뜻...)" class="w-full bg-slate-100 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
-                    </div>
-                    <select id="level-filter" class="bg-slate-100 border-none rounded-xl px-3 py-2 text-xs font-bold uppercase outline-none focus:ring-2 focus:ring-indigo-500">
-                        <option value="ALL">ALL</option>
-                        <option value="A1">A1</option>
-                        <option value="A2">A2</option>
-                        <option value="B1">B1</option>
-                        <option value="B2">B2</option>
-                    </select>
-                </div>
-                <!-- 통계 표시줄(Stats Bar) 제거됨 -->
-            </div>
-        </header>
+            </header>
 
-        <main class="max-w-4xl mx-auto p-4 space-y-3" id="list-container"></main>
-    </div>
+            <main class="max-w-4xl mx-auto p-4 space-y-3" id="list-container"></main>
+        </div>
 
-    <script>
-        let allVocab = [];
-        let userOverrides = JSON.parse(localStorage.getItem('user_overrides_v8') || '{}');
-        let learnedWords = JSON.parse(localStorage.getItem('user_learned_v8') || '[]');
-        let meaningsVisible = false;
+        <script>
+            let allVocab = [];
+            let currentFiltered = [];
+            let displayCount = 0;
+            const CHUNK_SIZE = 100; // 한 번에 불러올 개수
 
-        async function init() {
-            // 깃허브 Raw 주소
-            const fileName = 'https://raw.githubusercontent.com/yun6160/duo-3000/main/words.json';
-            
-            try {
-                const resp = await fetch(fileName, { cache: 'no-store' });
-                
-                if (!resp.ok) {
-                    throw new Error(`HTTP Error: ${resp.status}`);
+            let userOverrides = JSON.parse(localStorage.getItem("user_overrides_v8") || "{}");
+            let learnedWords = JSON.parse(localStorage.getItem("user_learned_v8") || "[]");
+            let meaningsVisible = false;
+
+            // 다크 모드 초기화
+            function initTheme() {
+                if (
+                    localStorage.theme === "dark" ||
+                    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                ) {
+                    document.documentElement.classList.add("dark");
+                    document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    document.documentElement.classList.remove("dark");
+                    document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-moon"></i>';
                 }
-                
-                const data = await resp.json();
-                
-                if (!Array.isArray(data)) {
-                    throw new Error("JSON 형식이 배열이 아닙니다.");
-                }
-                
-                handleData(data);
-                
-            } catch (e) {
-                console.error("Initialization Failed:", e);
-                showErrorState(e.message);
             }
-        }
 
-        function showErrorState(msg) {
-            document.getElementById('status-text').innerText = "오류가 발생했습니다.";
-            document.getElementById('spinner').classList.add('hidden');
-            const manualUI = document.getElementById('manual-ui');
-            const errorMsg = document.getElementById('error-msg');
-            
-            if (manualUI) manualUI.classList.remove('hidden');
-            if (errorMsg) errorMsg.innerText = msg;
-        }
+            // 다크 모드 토글
+            function toggleTheme() {
+                if (document.documentElement.classList.contains("dark")) {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.theme = "light";
+                    document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-moon"></i>';
+                } else {
+                    document.documentElement.classList.add("dark");
+                    localStorage.theme = "dark";
+                    document.getElementById("theme-toggle").innerHTML = '<i class="fas fa-sun"></i>';
+                }
+            }
 
-        document.getElementById('json-input').addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (ev) => {
+            async function init() {
+                initTheme();
+
+                const fileName = "https://raw.githubusercontent.com/yun6160/duo-3000/main/words.json";
+
                 try {
-                    const data = JSON.parse(ev.target.result);
-                    if (!Array.isArray(data)) throw new Error("JSON이 배열 형식이 아닙니다.");
+                    const resp = await fetch(fileName, { cache: "no-store" });
+                    if (!resp.ok) throw new Error(`HTTP Error: ${resp.status}`);
+
+                    const data = await resp.json();
+                    if (!Array.isArray(data)) throw new Error("JSON 형식이 배열이 아닙니다.");
+
                     handleData(data);
-                } catch(err) { 
-                    alert("JSON 파싱 실패: " + err.message); 
+                } catch (e) {
+                    console.error("Initialization Failed:", e);
+                    showErrorState(e.message);
                 }
-            };
-            reader.readAsText(file);
-        });
+            }
 
-        function handleData(data) {
-            allVocab = data.map(item => {
-                if (userOverrides[item.word]) {
-                    item.ko = userOverrides[item.word];
-                }
-                return item;
-            });
-            
-            const overlay = document.getElementById('loading-overlay');
-            overlay.classList.add('opacity-0');
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-            }, 500);
-            
-            renderList();
-        }
+            function showErrorState(msg) {
+                document.getElementById("status-text").innerText = "오류가 발생했습니다.";
+                document.getElementById("spinner").classList.add("hidden");
+                document.getElementById("manual-ui").classList.remove("hidden");
+                document.getElementById("error-msg").innerText = msg;
+            }
 
-        function renderList() {
-            const container = document.getElementById('list-container');
-            const search = document.getElementById('search-input').value.toLowerCase();
-            const level = document.getElementById('level-filter').value;
-            container.innerHTML = '';
-
-            const filtered = allVocab.filter(w => {
-                const wordLower = w.word ? w.word.toLowerCase() : "";
-                const koMean = w.ko ? w.ko : "";
-                const matchesSearch = wordLower.includes(search) || koMean.includes(search);
-                
-                const wLv = (w.senses && w.senses[0] && w.senses[0].level) ? w.senses[0].level : 'N/A';
-                const matchesLevel = level === 'ALL' || wLv === level;
-                
-                return matchesSearch && matchesLevel;
+            document.getElementById("json-input").addEventListener("change", (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    try {
+                        const data = JSON.parse(ev.target.result);
+                        if (!Array.isArray(data)) throw new Error("JSON이 배열 형식이 아닙니다.");
+                        handleData(data);
+                    } catch (err) {
+                        alert("JSON 파싱 실패: " + err.message);
+                    }
+                };
+                reader.readAsText(file);
             });
 
-            // [수정됨] 통계 관련 JS 코드 제거 완료 (stat-total, stat-edited 관련 에러 없음)
+            function handleData(data) {
+                allVocab = data.map((item) => {
+                    if (userOverrides[item.word]) {
+                        item.ko = userOverrides[item.word];
+                    }
+                    return item;
+                });
 
-            const fragment = document.createDocumentFragment();
-            
-            filtered.slice(0, 100).forEach(w => {
-                const isLearned = learnedWords.includes(w.word);
-                const pos = (w.senses && w.senses[0]) ? w.senses[0].pos : '';
-                const lv = (w.senses && w.senses[0]) ? w.senses[0].level : '';
-                const currentMeaning = w.ko || '뜻 없음';
-                const visibilityClass = meaningsVisible ? 'meaning-visible' : 'meaning-hidden';
-                const safeWord = w.word.replace(/'/g, "\\'");
+                const overlay = document.getElementById("loading-overlay");
+                overlay.classList.add("opacity-0");
+                setTimeout(() => {
+                    overlay.classList.add("hidden");
+                }, 500);
 
-                const div = document.createElement('div');
-                div.className = `word-card p-5 bg-white flex items-center justify-between gap-4 mb-3 ${isLearned ? 'opacity-50 grayscale' : ''} transition-all duration-300`;
-                div.innerHTML = `
+                renderList(true); // 처음엔 필터링 초기화 후 렌더링
+            }
+
+            // isReset이 true면 아예 처음부터(검색/필터 변경 시), false면 인피니티 스크롤로 이어붙임
+            function renderList(isReset = true) {
+                const container = document.getElementById("list-container");
+
+                if (isReset) {
+                    const search = document.getElementById("search-input").value.toLowerCase();
+                    const level = document.getElementById("level-filter").value;
+
+                    currentFiltered = allVocab.filter((w) => {
+                        const wordLower = w.word ? w.word.toLowerCase() : "";
+                        const koMean = w.ko ? w.ko : "";
+                        const matchesSearch = wordLower.includes(search) || koMean.includes(search);
+
+                        const wLv = w.senses && w.senses[0] && w.senses[0].level ? w.senses[0].level : "N/A";
+                        const matchesLevel = level === "ALL" || wLv === level;
+
+                        return matchesSearch && matchesLevel;
+                    });
+
+                    container.innerHTML = "";
+                    displayCount = 0;
+                }
+
+                if (displayCount >= currentFiltered.length) return; // 더 불러올 데이터가 없으면 중단
+
+                const nextCount = Math.min(displayCount + CHUNK_SIZE, currentFiltered.length);
+                const fragment = document.createDocumentFragment();
+                const itemsToRender = currentFiltered.slice(displayCount, nextCount);
+
+                itemsToRender.forEach((w) => {
+                    const isLearned = learnedWords.includes(w.word);
+                    const pos = w.senses && w.senses[0] ? w.senses[0].pos : "";
+                    const lv = w.senses && w.senses[0] ? w.senses[0].level : "";
+                    const currentMeaning = w.ko || "뜻 없음";
+                    const visibilityClass = meaningsVisible ? "meaning-visible" : "meaning-hidden";
+                    const safeWord = w.word.replace(/'/g, "\\'");
+
+                    const div = document.createElement("div");
+                    div.className = `word-card p-5 flex items-center justify-between gap-4 mb-3 ${isLearned ? "opacity-50 grayscale" : ""} transition-all duration-300`;
+                    div.innerHTML = `
                     <div class="flex-1 overflow-hidden">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-lg font-black text-slate-800 tracking-tight">${w.word}</span>
-                            ${lv ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-400 font-bold uppercase">${lv}</span>` : ''}
+                            <span class="text-lg font-black text-slate-800 dark:text-white tracking-tight">${w.word}</span>
+                            ${lv ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-300 font-bold uppercase">${lv}</span>` : ""}
                         </div>
-                        <div class="text-[10px] text-indigo-400 font-bold uppercase mb-2 tracking-widest">${pos}</div>
+                        <div class="text-[10px] text-indigo-400 dark:text-indigo-300 font-bold uppercase mb-2 tracking-widest">${pos}</div>
                         
-                        <!-- 클릭 핸들러 -->
                         <div class="relative w-full cursor-pointer group py-1" 
                              onclick="handleToggle(this)" 
                              ondblclick="handleEdit(this, '${safeWord}')">
-                            <p class="meaning-text text-sm font-bold transition-all ${visibilityClass} select-none group-hover:text-indigo-600">${currentMeaning}</p>
-                            <span class="text-[10px] text-slate-300 absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">더블클릭 수정</span>
+                            <p class="meaning-text text-sm font-bold transition-all ${visibilityClass} select-none group-hover:text-indigo-600 dark:group-hover:text-indigo-400">${currentMeaning}</p>
+                            <span class="text-[10px] text-slate-300 dark:text-slate-500 absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">더블클릭 수정</span>
                         </div>
                     </div>
                     <div class="flex flex-col items-center gap-3">
                         <label class="relative inline-flex items-center cursor-pointer">
-                            <input type="checkbox" ${isLearned ? 'checked' : ''} onchange="toggleLearn('${safeWord}')" class="sr-only peer">
-                            <div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-500"></div>
+                            <input type="checkbox" ${isLearned ? "checked" : ""} onchange="toggleLearn(this, '${safeWord}')" class="sr-only peer">
+                            <div class="w-9 h-5 bg-slate-200 dark:bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-500"></div>
                         </label>
-                        <button onclick="speak('${safeWord}')" class="w-8 h-8 flex items-center justify-center text-slate-300 hover:text-indigo-500 hover:bg-indigo-50 rounded-full transition-colors">
+                        <button onclick="speak('${safeWord}')" class="w-8 h-8 flex items-center justify-center text-slate-300 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors">
                             <i class="fas fa-volume-up"></i>
                         </button>
                     </div>
                 `;
-                fragment.appendChild(div);
+                    fragment.appendChild(div);
+                });
+                container.appendChild(fragment);
+                displayCount = nextCount;
+
+                if (isReset && currentFiltered.length === 0) {
+                    container.innerHTML = `<div class="text-center text-slate-400 dark:text-slate-500 py-10 text-sm">검색 결과가 없습니다.</div>`;
+                }
+            }
+
+            // 인피니티 스크롤 이벤트 감지
+            window.addEventListener("scroll", () => {
+                const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+                // 바닥에 닿기 300px 전에 미리 다음 데이터 렌더링
+                if (scrollTop + clientHeight >= scrollHeight - 300) {
+                    renderList(false);
+                }
             });
-            container.appendChild(fragment);
-            
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="text-center text-slate-400 py-10 text-sm">검색 결과가 없습니다.</div>`;
-            }
-        }
 
-        // [토글 기능] 클릭 시 보이기/숨기기 전환
-        function handleToggle(container) {
-            const textEl = container.querySelector('.meaning-text');
-            if (textEl.classList.contains('hidden')) return;
+            function handleToggle(container) {
+                const textEl = container.querySelector(".meaning-text");
+                if (textEl.classList.contains("hidden")) return;
 
-            if (textEl.classList.contains('meaning-hidden')) {
-                textEl.classList.replace('meaning-hidden', 'meaning-visible');
-            } else {
-                textEl.classList.replace('meaning-visible', 'meaning-hidden');
-            }
-        }
-
-        // [수정 기능] 더블 클릭 시 수정 모드
-        function handleEdit(container, word) {
-            const textEl = container.querySelector('.meaning-text');
-            
-            if (textEl.classList.contains('hidden')) return;
-
-            // 수정 모드 진입 시 텍스트 보이게 처리
-            textEl.classList.remove('meaning-hidden');
-            textEl.classList.add('meaning-visible');
-            
-            const currentVal = textEl.innerText;
-            const input = document.createElement('input');
-            input.className = 'edit-input text-sm';
-            input.value = currentVal;
-            
-            textEl.classList.add('hidden');
-            container.appendChild(input);
-            input.focus();
-
-            const finishEdit = () => {
-                const newVal = input.value.trim();
-                if (newVal && newVal !== currentVal) {
-                    saveOverride(word, newVal);
+                if (textEl.classList.contains("meaning-hidden")) {
+                    textEl.classList.replace("meaning-hidden", "meaning-visible");
+                } else {
+                    textEl.classList.replace("meaning-visible", "meaning-hidden");
                 }
-                input.remove();
-                textEl.classList.remove('hidden');
-            };
-            input.onblur = finishEdit;
-            input.onkeydown = (e) => { 
-                if(e.key === 'Enter') input.blur(); 
-                if(e.key === 'Escape') {
-                    input.value = currentVal;
-                    input.blur();
-                }
-            };
-        }
-
-        function saveOverride(word, newVal) {
-            userOverrides[word] = newVal;
-            localStorage.setItem('user_overrides_v8', JSON.stringify(userOverrides));
-            const target = allVocab.find(v => v.word === word);
-            if(target) target.ko = newVal;
-            renderList();
-        }
-
-        function exportJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allVocab, null, 2));
-            const dlAnchor = document.createElement('a');
-            dlAnchor.setAttribute("href", dataStr);
-            dlAnchor.setAttribute("download", "words_updated.json");
-            dlAnchor.click();
-        }
-
-        function toggleAllMeanings() {
-            meaningsVisible = !meaningsVisible;
-            document.getElementById('global-toggle').innerText = meaningsVisible ? "뜻 모두 숨기기" : "뜻 모두 보이기";
-            renderList();
-        }
-
-        function toggleLearn(word) {
-            if(learnedWords.includes(word)) {
-                learnedWords = learnedWords.filter(w => w !== word);
-            } else {
-                learnedWords.push(word);
             }
-            localStorage.setItem('user_learned_v8', JSON.stringify(learnedWords));
-            renderList();
-        }
 
-        function speak(text) {
-            const ut = new SpeechSynthesisUtterance(text);
-            ut.lang = 'en-US'; 
-            ut.rate = 0.9;
-            window.speechSynthesis.speak(ut);
-        }
+            function handleEdit(container, word) {
+                const textEl = container.querySelector(".meaning-text");
+                if (textEl.classList.contains("hidden")) return;
 
-        document.getElementById('search-input').addEventListener('input', renderList);
-        document.getElementById('level-filter').addEventListener('change', renderList);
+                textEl.classList.remove("meaning-hidden");
+                textEl.classList.add("meaning-visible");
 
-        window.onload = init;
-    </script>
-</body>
+                const currentVal = textEl.innerText;
+                const input = document.createElement("input");
+                input.className = "edit-input text-sm";
+                input.value = currentVal;
+
+                textEl.classList.add("hidden");
+                container.appendChild(input);
+                input.focus();
+
+                const finishEdit = () => {
+                    const newVal = input.value.trim();
+                    if (newVal && newVal !== currentVal) {
+                        // 전체 리스트 재랜더링 방지, DOM만 직접 업데이트
+                        userOverrides[word] = newVal;
+                        localStorage.setItem("user_overrides_v8", JSON.stringify(userOverrides));
+                        const target = allVocab.find((v) => v.word === word);
+                        if (target) target.ko = newVal;
+                        textEl.innerText = newVal;
+                    }
+                    input.remove();
+                    textEl.classList.remove("hidden");
+                };
+                input.onblur = finishEdit;
+                input.onkeydown = (e) => {
+                    if (e.key === "Enter") input.blur();
+                    if (e.key === "Escape") {
+                        input.value = currentVal;
+                        input.blur();
+                    }
+                };
+            }
+
+            function exportJSON() {
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allVocab, null, 2));
+                const dlAnchor = document.createElement("a");
+                dlAnchor.setAttribute("href", dataStr);
+                dlAnchor.setAttribute("download", "words_updated.json");
+                dlAnchor.click();
+            }
+
+            function toggleAllMeanings() {
+                meaningsVisible = !meaningsVisible;
+                document.getElementById("global-toggle").innerText = meaningsVisible
+                    ? "뜻 모두 숨기기"
+                    : "뜻 모두 보이기";
+
+                // 전체 재랜더링 방지, 현재 띄워진 요소들의 클래스만 일괄 교체
+                document.querySelectorAll(".meaning-text").forEach((el) => {
+                    if (meaningsVisible) {
+                        el.classList.replace("meaning-hidden", "meaning-visible");
+                    } else {
+                        if (!el.classList.contains("hidden")) {
+                            el.classList.replace("meaning-visible", "meaning-hidden");
+                        }
+                    }
+                });
+            }
+
+            function toggleLearn(checkbox, word) {
+                const card = checkbox.closest(".word-card"); // 현재 체크된 단어 카드 부모 찾기
+
+                if (learnedWords.includes(word)) {
+                    learnedWords = learnedWords.filter((w) => w !== word);
+                    card.classList.remove("opacity-50", "grayscale");
+                } else {
+                    learnedWords.push(word);
+                    card.classList.add("opacity-50", "grayscale");
+                }
+                localStorage.setItem("user_learned_v8", JSON.stringify(learnedWords));
+            }
+
+            function speak(text) {
+                const ut = new SpeechSynthesisUtterance(text);
+                ut.lang = "en-US";
+                ut.rate = 0.9;
+                window.speechSynthesis.speak(ut);
+            }
+
+            document.getElementById("search-input").addEventListener("input", () => renderList(true));
+            document.getElementById("level-filter").addEventListener("change", () => renderList(true));
+
+            window.onload = init;
+        </script>
+    </body>
 </html>
